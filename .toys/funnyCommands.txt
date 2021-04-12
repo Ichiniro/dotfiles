@@ -1,0 +1,2 @@
+# Reproducir videos en la terminal
+youtube-dl "https://youtu.be/2ZkanQ4a5Uw" -o - | env CACA_DRIVER=ncurses mpv -vo=caca -
