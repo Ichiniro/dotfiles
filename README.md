@@ -27,6 +27,7 @@ I normally use `colorz` as backend but you can use whatever you want.
  I'm using a config from [this repo](https://github.com/adi1090x/polybar-themes). It is probably necessary to make some changes to the configuration file before it can be used optimally.
 
 ### Shell
+
 I'm using `zsh` with [oh-my-zsh](https://ohmyz.sh/) to customize it. I'm using `Konsole` as a terminal emulator because I like it and fit with Plasma very well.
 
 <details>
@@ -81,7 +82,7 @@ I'm a young `vim` enthusiast so this is my editor of preference with [Ale](https
 
 ### Steam
 
-I'm also using [wal_steam](https://github.com/kotajacob/wal_steam) wich is in the AUR to customize the aséct of Steam. The script is configured to set a dark theme to Steam no matter what because `wal_steam` looks weird with light themes. I think this can be fixed but I haven't tried to fix it yet.
+I'm also using [wal_steam](https://github.com/kotajacob/wal_steam) wich is in the AUR to customize the aspect of Steam. The script is configured to set a dark theme to Steam no matter what because `wal_steam` looks weird with light themes. I think this can be fixed but I haven't tried to fix it yet.
 
 <details>
   <summary>Click to show Steam Screenshot</summary>
@@ -117,7 +118,7 @@ The next ones are also used:
 
 # How to use the main script
 
-The script in charge of set the desktop colors is located in `.config/polybar/scripts/pywal_Complete.sh` you can use it from there. It is also aliased in my `.zshrc` file as `rice`. It's very easy to use. You just need to invoke the script and pass it a wallpaper of your choice as first parameter. If you want it to generate a light color scheme a second parameter is required, I usually use `-l` but in fact it doesn't matter. I'll improve the script later because for now it is a little but crappy.
+The script in charge of set the desktop colors is located in `.config/polybar/scripts/pywal_Complete.sh` you can use it from there. It is also aliased in my `.zshrc` file as `rice`. It's very easy to use. You just need to invoke the script and pass it a wallpaper of your choice as first parameter. If you want it to generate a light color scheme a second parameter is required, I usually use `-l` but in fact it doesn't matter. I'll improve the script later because for now it is a little ~~bit~~ much crappy.
 
 ### Examples
 
@@ -125,10 +126,33 @@ Basic example to generate a Dark colorscheme
 
     sh .config/polybar/scripts/pywal_Complete.sh path/to/your/wallpaper
 
-And for a light colorscheme we send a second parameter
+<details>
+  <summary>View example</summary>
+
+  ![Showdark](Pictures/Screenshots/Show_dark.gif)
+  
+</details>
+
+<br>And for a light colorscheme we send a second parameter
 
     sh .config/polybar/scripts/pywal_Complete.sh path/to/your/wallpaper -l
 
-The script will change the colors for Plasma, Spotify, Discord, Zathura, Konsole, Firefox, Rofi, Steam, VS Code(sometimes you need to refresh the theme manually) and will set the image as Desktop Background. When you run this script it will display the `Colors` kcmshell5 module. You will need to Apply any other colorscheme other than the lightly-wal and then reapply it because a haven't found a way to make to Plasma to realize that the colors have changed. If you dont do this the Plasma colors will not change until you do it, reboot or re-login.
+<details>
+  <summary>View example</summary>
+
+  ![Showlight](Pictures/Screenshots/Show_light.gif)
+
+</details>
+
+
+<br>The script will change the colors for Plasma, Spotify, Discord, Zathura, Konsole, Firefox, Rofi, Steam, VS Code(sometimes you need to refresh the theme manually) and will set the image as Desktop Background. When you run this script it will display the `Colors` kcmshell5 module. You will need to Apply any other colorscheme other than the lightly-wal and then reapply it because a haven't found a way to make to Plasma to realize that the colors have changed. If you dont do this the Plasma colors will not change until you do it, reboot or re-login _(This is likely a Plasma issue, I'm not sure yet)_. 
+
+When changing the colors Konsole will not update its color - at least not in a correct way - but this is a Konsole issue. The script and wal can't do anything about it for now. [See here](https://github.com/dylanaraps/pywal/wiki/Customization#konsole)
 
 If the path to your wallpaper has spaces the script might show a weird behaviour. It can not generate the colorscheme or not set the wallpaper. A path and a file name without spaces is recommended.
+
+---
+
+# Installation 
+
+_Someday, I hope so._
