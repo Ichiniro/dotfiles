@@ -3,7 +3,7 @@
 
 # ![Kawaii dancing cat](https://i.giphy.com/media/IcJ6n6VJNjRNS/giphy.webp) _Welcome!_ ![Kawaii dancing cat](https://i.giphy.com/media/IcJ6n6VJNjRNS/giphy.webp)
 
-A repo for my current dotfiles. They're made to work with the Plasma Desktop Environment. 
+A repo for my current dotfiles. They're made to work with the Plasma Desktop Environment.
 
  ![Homescreen](Pictures/Screenshots/Homescreen.png)
 
@@ -31,10 +31,10 @@ I'm using `zsh` with [oh-my-zsh](https://ohmyz.sh/) to customize it. I'm using `
 
 <details>
   <summary>Click to show Konsole Screenshot</summary>
-  
+
   ![Konsole](Pictures/Screenshots/Konsole.png)
 
-</details>  
+</details>
 
 ### Editor
 
@@ -42,17 +42,17 @@ I'm a young `vim` enthusiast so this is my editor of preference with [Ale](https
 
 <details>
   <summary>Click to show Vim Screenshot</summary>
-  
+
   ![Editor](Pictures/Screenshots/Editor.png)
 
-</details>  
+</details>
 
 
  <br>Sometimes I use VS Code with [Wal Theme](https://marketplace.visualstudio.com/items?itemName=dlasagno.wal-theme) extension to make it change the colorscheme match the desktop colors.
 
 <details>
   <summary>Click to show VS Code Screenshot</summary>
-  
+
   ![VSCode](Pictures/Screenshots/VSCode.png)
 
 </details>
@@ -62,8 +62,8 @@ I'm a young `vim` enthusiast so this is my editor of preference with [Ale](https
  Spotify is the music player. Spotify is extremely ugly by default so I installed [Spicetify](https://github.com/khanhas/spicetify-cli) to improve its uglyness. I use [this theme](https://github.com/khanhas/google-spicetify) wich looks nice, but I change a file so it works with Pywal too. The theme is included in this repo but it's not a theme made by me.
 
 <details>
-  <summary>Click to show Firefox Screenshot</summary>
-  
+  <summary>Click to show Spotify Screenshot</summary>
+
   ![Spotify](Pictures/Screenshots/Spotify.png)
 
 </details>
@@ -73,8 +73,8 @@ I'm a young `vim` enthusiast so this is my editor of preference with [Ale](https
  Just like Spotify, Discord is ugly and wants to kill your eyes. In order to prevent this I'm using [BetterDiscord](https://betterdiscord.net/home/) to inject css on it and make it look better. The theme also owrks with the script that set the colors for the Desktop. Its recommended to use that theme, if you want to use another you must do some changes to the script to work with your theme.
 
  <details>
-  <summary>Click to show Firefox Screenshot</summary>
-  
+  <summary>Click to show Discord Screenshot</summary>
+
   ![Discord](Pictures/Screenshots/Discord.png)
 
 </details>
@@ -85,7 +85,7 @@ I'm also using [wal_steam](https://github.com/kotajacob/wal_steam) wich is in th
 
 <details>
   <summary>Click to show Steam Screenshot</summary>
-  
+
   ![Steam](Pictures/Screenshots/Steam.png)
 
 </details>
@@ -96,7 +96,7 @@ I forked [Kanji](https://github.com/Alededorigo/Kanji) to make my startpage and 
 
 <details>
   <summary>Click to show Firefox Screenshot</summary>
-  
+
   ![Firefox](Pictures/Screenshots/Firefox.png)
 
 </details>
