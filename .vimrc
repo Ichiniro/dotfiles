@@ -35,7 +35,7 @@ Plug 'ap/vim-css-color'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'wakatime/vim-wakatime'
 Plug 'raimondi/delimitmate'
-"Plug 'yuttie/comfortable-motion.vim'
+Plug 'yuttie/comfortable-motion.vim'
 Plug 'miyakogi/conoline.vim'
 "Plug 'severin-lemaignan/vim-minimap'
 Plug 'ryanoasis/vim-devicons'
@@ -261,11 +261,11 @@ map <Tab> :noh<CR>
 tnoremap <Esc> <c-\><C-n>
 
 " Smooth scroll with mouse and keyboard
-"noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
-"noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 
-"let g:comfortable_motion_scroll_down_key = "j"
-"let g:comfortable_motion_scroll_up_key = "k"
+let g:comfortable_motion_scroll_down_key = "j"
+let g:comfortable_motion_scroll_up_key = "k"
 
 " Colors for highlighted line
 let g:conoline_auto_enable = 0

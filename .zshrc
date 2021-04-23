@@ -8,7 +8,7 @@ export ZSH="/home/korewagian/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="smt"
+ZSH_THEME="emotty"
 # Temas utiles
 # takashiyoshida
 # avit
@@ -93,6 +93,9 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-z
+    emotty
+    emoji
+    zsh-256color
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -132,7 +135,7 @@ alias cpumode="cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 alias rice="sh $HOME/.config/polybar/scripts/pywal_Complete.sh"
 alias endksession="qdbus org.kde.kmserver /KSMServer logout 1 3 3"
 alias colorpanes="sh $HOME/.toys/colorpanes"
-alias rebar="sh $HOME/.config/autostart-scripts/launch.sh"
+alias colorline="sh $HOME/.toys/colorline"
 
 # Command to create a folder and cd'd into the folder
 mkcd () {
@@ -147,5 +150,5 @@ setopt HIST_IGNORE_ALL_DUPS
 export PATH="${PATH}:${HOME}/.local/bin/"
 
 #sh ~/.toys/maki.sh
-figlet "Nanisore? Imi wakannai" -c -k -t
+#figlet "Nanisore? Imi wakannai" -c -k -t
 

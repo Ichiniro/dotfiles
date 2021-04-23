@@ -5,11 +5,11 @@ ENJOY!
 
 /*================ GLOBAL COLORS ================*/
 :root {
-	--accent-color: 41,44,45;
-	--secondary-accent-color: 213,196,161;
-	--third-accent-color: 213,196,161;
-	--light-color: 213,196,161;
-	--dark-color: 29,32,33;
+	--accent-color: 241,241,240;
+	--secondary-accent-color: 85,91,77;
+	--third-accent-color: 85,91,77;
+	--light-color: 85,91,77;
+	--dark-color: 253,253,252;
 	--caption-min-color: 82, 82, 82;
 	--caption-max-color: 100, 100, 100;
 	--caption-close-color: 126, 126, 126;
@@ -475,7 +475,8 @@ searchbar#searchbar {
 	-moz-appearance: none !important;
 	margin: 3px 8px 3px 8px !important;
 	padding: 0 !important;
-	border-top: 1px solid rgba(var(--third-accent-color), 0.1) !important;
+	/*border-top: 1px solid rgba(var(--third-accent-color), 0.1) !important;*/
+	border-top: none !important;
 	border-bottom: none !important;
 }
 
