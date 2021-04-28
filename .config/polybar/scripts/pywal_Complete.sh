@@ -152,6 +152,7 @@ change_color() {
     sed -i -e "37 s/BackgroundNormal=.*/BackgroundNormal=$LAC/g" $LFILE
     # Lightly DecoHovers
     sed -i -e "67 s/DecorationHover=.*/DecorationHover=$LAC/g" $LFILE
+    sed -i -e "25 s/DecorationHover=.*/DecorationHover=$LAC/g" $LFILE
 
     # Zathura colors
 	sed -i -e "s/set default-bg \"#.*/set default-bg \"$ZBG\"/g" $ZFILE
@@ -268,6 +269,10 @@ if [[ -f "$HOME/.local/bin/wal" ]]; then
 		change_color
         sh $HOME/.config/autostart-scripts/launch.sh
         set_wallpaper $1
+
+        # Reload Gtk theme on the fly uncomment until I can modify the theme
+        #dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Default'
+        #dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Bigsur-gtk'
 
         # Reload color scheme, manually until I find a workaround
         RED='\033[0;31m'

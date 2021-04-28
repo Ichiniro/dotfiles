@@ -153,6 +153,15 @@ If the path to your wallpaper has spaces the script might show a weird behaviour
 
 ---
 
+# Dependencies
+
+* xsettingsd
+* wal_steam
+* EnhancedDiscord
+* Pywal
+* Polybar
+
+---
 # Installation 
 
 _Someday, I hope so._
