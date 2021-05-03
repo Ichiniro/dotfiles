@@ -1,0 +1,6 @@
+old_gtk_background='#fdfdfc'
+old_gtk_accent='#FCA19B'
+old_gtk_secondary_background='#FDFDFC'
+old_gtk_third_background='#FDFDFC'
+old_gtk_inactive_background='#25262A'
+old_gtk_inactive_background='#1C1E1F'
