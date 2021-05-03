@@ -118,13 +118,13 @@ The next ones are also used:
 
 # How to use the main script
 
-The script in charge of set the desktop colors is located in `.config/polybar/scripts/pywal_Complete.sh` you can use it from there. It is also aliased in my `.zshrc` file as `rice`. It's very easy to use. You just need to invoke the script and pass it a wallpaper of your choice as first parameter. If you want it to generate a light color scheme a second parameter is required, I usually use `-l` but in fact it doesn't matter. I'll improve the script later because for now it is a little ~~bit~~ much crappy.
+The script in charge of set the desktop colors is located in `.config/polybar/scripts/pywal_Complete.sh` you can use it from there. It is also aliased in my `.zshrc` file as `rice`. It's very easy to use. You just need to invoke the script and pass it a wallpaper of your choice with `-i` flag. If you want it to generate a light color scheme make sure to use `-l`. I'll improve the script later because for now it is a little ~~bit~~ much crappy.
 
 ### Examples
 
 Basic example to generate a Dark colorscheme
 
-    sh .config/polybar/scripts/pywal_Complete.sh path/to/your/wallpaper
+    sh .config/polybar/scripts/pywal_Complete.sh -i path/to/your/wallpaper
 
 <details>
   <summary>View example</summary>
@@ -135,7 +135,7 @@ Basic example to generate a Dark colorscheme
 
 <br>And for a light colorscheme we send a second parameter
 
-    sh .config/polybar/scripts/pywal_Complete.sh path/to/your/wallpaper -l
+    sh .config/polybar/scripts/pywal_Complete.sh -l -i path/to/your/wallpaper
 
 <details>
   <summary>View example</summary>
