@@ -3,7 +3,7 @@
 
 # ![Kawaii dancing cat](https://i.giphy.com/media/IcJ6n6VJNjRNS/giphy.webp) _Welcome!_ ![Kawaii dancing cat](https://i.giphy.com/media/IcJ6n6VJNjRNS/giphy.webp)
 
-A repo for my current dotfiles. They're made to work with the Plasma Desktop Environment.
+A repo for my current dotfiles. They're made to work with KDE Plasma.
 
  ![Homescreen](Pictures/Showcase/Homescreen.png)
 
@@ -118,13 +118,17 @@ The next ones are also used:
 
 # How to use the main script
 
-The script in charge of set the desktop colors is located in `.config/polybar/scripts/pywal_Complete.sh` you can use it from there. It is also aliased in my `.zshrc` file as `rice`. It's very easy to use. You just need to invoke the script and pass it a wallpaper of your choice with `-i` flag. If you want it to generate a light color scheme make sure to use `-l`. I'll improve the script later because for now it is a little ~~bit~~ much crappy.
+The script in charge of set the desktop colors is located in `.config/polybar/scripts/rice.sh` you can use it from there. It is also aliased in my `.zshrc` file as `rice`. It's very easy to use. You just need to invoke the script and pass it a wallpaper of your choice with `-i` flag. If you want it to generate a light color scheme make sure to use `-l`. Use `-b` to select one of the pywal backends (Make sure to installed them first). I'll improve the script later because for now it is a little ~~bit~~ much crappy.
 
 ### Examples
 
 Basic example to generate a Dark colorscheme
 
-    sh .config/polybar/scripts/pywal_Complete.sh -i path/to/your/wallpaper
+    sh .config/polybar/scripts/rice.sh -i path/to/your/wallpaper
+
+or using the alias
+
+    rice -i path/to/your/wallpaper
 
 <details>
   <summary>View example</summary>
@@ -144,8 +148,15 @@ Basic example to generate a Dark colorscheme
 
 </details>
 
+Generate a light color scheme using colorz as backend:
 
-<br>The script will change the colors for Plasma, Spotify, Discord, Zathura, Konsole, Firefox, Rofi, Steam, VS Code(sometimes you need to refresh the theme manually) and will set the image as Desktop Background. When you run this script it will display the `Colors` kcmshell5 module. You will need to Apply any other colorscheme other than the lightly-wal and then reapply it because a haven't found a way to make to Plasma to realize that the colors have changed. If you dont do this the Plasma colors will not change until you do it, reboot or re-login _(This is likely a Plasma issue, I'm not sure yet)_. 
+    rice -i path/to/your/wallpaper -l -b colorz
+
+`wal` its the default backkend and it'll be used whe no backend is specified.
+
+<br>The script will change the colors for Plasma, Spotify, Discord, Zathura, Konsole, Firefox, Rofi, Steam, VS Code(sometimes you need to refresh the theme manually) and will set the image as Desktop Background. When you run this script it will display the `Colors` kcmshell5 module. You will need to Apply any other colorscheme other than the lightly-wal and then reapply it because a haven't found a way to make to Plasma to realize that the colors have changed. If you dont do this the Plasma colors will not change until you do it, reboot or re-login.
+
+Make sure to have `xsettingsd` installed to refresh the Gtk theme on the fly, if not you will need to close and open your apps to see the changes.
 
 When changing the colors Konsole will not update its color - at least not in a correct way - but this is a Konsole issue. The script and wal can't do anything about it for now. [See here](https://github.com/dylanaraps/pywal/wiki/Customization#konsole)
 
