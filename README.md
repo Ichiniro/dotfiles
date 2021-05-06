@@ -5,7 +5,7 @@
 
 A repo for my current dotfiles. They're made to work with the Plasma Desktop Environment.
 
- ![Homescreen](Pictures/Screenshots/Homescreen.png)
+ ![Homescreen](Pictures/Showcase/Homescreen.png)
 
 ---
 
@@ -33,7 +33,7 @@ I'm using `zsh` with [oh-my-zsh](https://ohmyz.sh/) to customize it. I'm using `
 <details>
   <summary>Click to show Konsole Screenshot</summary>
 
-  ![Konsole](Pictures/Screenshots/Konsole.png)
+  ![Konsole](Pictures/Showcase/Konsole.png)
 
 </details>
 
@@ -44,7 +44,7 @@ I'm a young `vim` enthusiast so this is my editor of preference with [Ale](https
 <details>
   <summary>Click to show Vim Screenshot</summary>
 
-  ![Editor](Pictures/Screenshots/Editor.png)
+  ![Editor](Pictures/Showcase/Editor.png)
 
 </details>
 
@@ -54,7 +54,7 @@ I'm a young `vim` enthusiast so this is my editor of preference with [Ale](https
 <details>
   <summary>Click to show VS Code Screenshot</summary>
 
-  ![VSCode](Pictures/Screenshots/VSCode.png)
+  ![VSCode](Pictures/Showcase/VSCode.png)
 
 </details>
 
@@ -65,7 +65,7 @@ I'm a young `vim` enthusiast so this is my editor of preference with [Ale](https
 <details>
   <summary>Click to show Spotify Screenshot</summary>
 
-  ![Spotify](Pictures/Screenshots/Spotify.png)
+  ![Spotify](Pictures/Showcase/Spotify.png)
 
 </details>
 
@@ -76,7 +76,7 @@ I'm a young `vim` enthusiast so this is my editor of preference with [Ale](https
  <details>
   <summary>Click to show Discord Screenshot</summary>
 
-  ![Discord](Pictures/Screenshots/Discord.png)
+  ![Discord](Pictures/Showcase/Discord.png)
 
 </details>
 
@@ -87,7 +87,7 @@ I'm also using [wal_steam](https://github.com/kotajacob/wal_steam) wich is in th
 <details>
   <summary>Click to show Steam Screenshot</summary>
 
-  ![Steam](Pictures/Screenshots/Steam.png)
+  ![Steam](Pictures/Showcase/Steam.png)
 
 </details>
 
@@ -98,7 +98,7 @@ I forked [Kanji](https://github.com/Alededorigo/Kanji) to make my startpage and 
 <details>
   <summary>Click to show Firefox Screenshot</summary>
 
-  ![Firefox](Pictures/Screenshots/Firefox.png)
+  ![Firefox](Pictures/Showcase/Firefox.png)
 
 </details>
 
@@ -129,7 +129,7 @@ Basic example to generate a Dark colorscheme
 <details>
   <summary>View example</summary>
 
-  ![Showdark](Pictures/Screenshots/Show_dark.gif)
+  ![Showdark](Pictures/Showcase/Show_dark.gif)
   
 </details>
 
@@ -140,7 +140,7 @@ Basic example to generate a Dark colorscheme
 <details>
   <summary>View example</summary>
 
-  ![Showlight](Pictures/Screenshots/Show_light.gif)
+  ![Showlight](Pictures/Showcase/Show_light.gif)
 
 </details>
 
