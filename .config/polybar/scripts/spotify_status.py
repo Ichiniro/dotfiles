@@ -65,8 +65,6 @@ def truncate(name, trunclen):
             name += ')'
     return name
 
-
-
 # Default parameters
 output = fix_string(u'{play_pause} {artist}: {song}')
 trunclen = 35
@@ -120,25 +118,6 @@ try:
     artist = fix_string(metadata['xesam:artist'][0]) if metadata['xesam:artist'] else ''
     song = fix_string(metadata['xesam:title']) if metadata['xesam:title'] else ''
     album = fix_string(metadata['xesam:album']) if metadata['xesam:album'] else ''
-
-    # Run wall changer
-    """if artist == "Aqours":
-        if song == "Deep Resonance":
-            subprocess.call("~/.toys/setDeepResonance.sh", shell=True);
-        else:
-            subprocess.call("/home/korewagian/.toys/setAqours.sh", shell=True)
-    elif artist == "μ's":
-        subprocess.call("/home/korewagian/.toys/setMuse.sh", shell=True)
-    elif artist == "lily white":
-        subprocess.call("/home/korewagian/.toys/setLilyWhite.sh", shell=True)
-    elif artist == "BiBi":
-        subprocess.call("/home/korewagian/.toys/setBiBi.sh", shell=True)
-    elif artist == "Printemps":
-        subprocess.call("/home/korewagian/.toys/setPrintemps.sh", shell=True)
-    elif artist == "A-RISE (綺羅ツバサ(CV.桜川めぐ)、統堂英玲奈(CV.松永真穂)、優木あんじゅ(CV.大橋歩夕))":
-        subprocess.call("~/.toys/setArise.sh", shell=True)
-    else:
-        subprocess.call("/home/korewagian/.toys/setNormal.sh", shell=True)"""
 
     if (quiet and status == 'Paused') or (not artist and not song and not album):
         print('')
