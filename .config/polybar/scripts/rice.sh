@@ -10,6 +10,7 @@ PFILE="$HOME/.config/polybar/colors.ini"                                        
 RFILE="$HOME/.config/polybar/scripts/rofi/colors.rasi"                          # Rofi file
 SFILE="$HOME/.config/spicetify/Themes/google-spicetify/color.ini"               # Spotify file
 ZFILE="$HOME/.config/zathura/zathurarc"                                         # Zathura file
+ZSHFILE="$HOME/.zshrc"                                                          # Zshrc file
 
 function set_wallpaper {
     dbus-send --session --dest=org.kde.plasmashell --type=method_call /PlasmaShell org.kde.PlasmaShell.evaluateScript 'string:
@@ -270,6 +271,15 @@ change_color() {
 	sed -i -e "s/set highlight-color \"#.*/set highlight-color \"$COLCUATRO\"/g" $ZFILE
 	sed -i -e "s/set highlight-active-color \"#.*/set highlight--activecolor \"$COLDOS\"/g" $ZFILE
 
+    # ZSH highlight colors
+    sed -i -e "s/ZSH_HIGHLIGHT_STYLES\[alias\]=.*/ZSH_HIGHLIGHT_STYLES\[alias\]='fg=$COLCUATRO'/g" $ZSHFILE
+    sed -i -e "s/ZSH_HIGHLIGHT_STYLES\[command\]=.*/ZSH_HIGHLIGHT_STYLES\[command\]='fg=$COLCUATRO'/g" $ZSHFILE
+    sed -i -e "s/ZSH_HIGHLIGHT_STYLES\[builtin\]=.*/ZSH_HIGHLIGHT_STYLES\[builtin\]='fg=$COLCUATRO'/g" $ZSHFILE
+    sed -i -e "s/ZSH_HIGHLIGHT_STYLES\[precommand\]=.*/ZSH_HIGHLIGHT_STYLES\[precommand\]='fg=$COLCUATRO'/g" $ZSHFILE
+    sed -i -e "s/ZSH_HIGHLIGHT_STYLES\[unknown-token\]=.*/ZSH_HIGHLIGHT_STYLES\[unknown-token\]='fg=$FGB'/g" $ZSHFILE
+    
+
+
     spicetify update > /dev/null 2>&1
 
     #echo "Colors updated!"
@@ -281,6 +291,7 @@ change_color() {
 if [[ -f "$HOME/.local/bin/wal" ]]; then
     #SOURCE="$HOME/Pictures/Wallpapers/83442302_p0_1.png"
     BACKEND="wal"
+    ACCENT=2
     while getopts i:b:l option
         do
         case "${option}"
@@ -293,16 +304,7 @@ if [[ -f "$HOME/.local/bin/wal" ]]; then
 
 	if [[ -n "$SOURCE" ]]; then
 
-        # test start
-        #for var in "$@"
-        #do
-            #if [[ "$var" == "-l" ]]; then
-                #LIGHT="-l"
-            #fi
-        #done
-
         pywal_get "$SOURCE" "$LIGHT" "$BACKEND"
-        # test end
 
 		# Source the pywal color file
         . "$HOME/.cache/wal/colors.sh"
@@ -330,6 +332,7 @@ if [[ -f "$HOME/.local/bin/wal" ]]; then
         fi
         COLDOS=`printf "%s\n" "$color2"`
         COLCUATRO=`printf "%s\n" "$color4"`
+        COLCINCO=`printf "%s\n" "$color5"`
         COLONCE=`printf "%s\n" "$color11"`
 
         # Without hash
@@ -414,10 +417,9 @@ if [[ -f "$HOME/.local/bin/wal" ]]; then
         echo -e "[!] You may need to restart some programs to see the changes"
         echo -e "[!] Press Ctrl+Shift+r to reload the spotify theme"
         echo -e "[!] Reapply Lightly-Dark to re-load the colors without errors"
-        kcmshell5 colors > /dev/null 2>&1
-
-        sh $HOME/.config/autostart-scripts/launch.sh
         set_wallpaper $SOURCE
+        kcmshell5 colors > /dev/null 2>&1
+        sh $HOME/.config/autostart-scripts/launch.sh
 
         # Reload Gtk theme on the fly uncomment until I can modify the theme
         dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Default'

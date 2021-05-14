@@ -152,3 +152,12 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 #sh ~/.toys/maki.sh
 #figlet "Nanisore? Imi wakannai" -c -k -t
 
+
+# Custom highlight
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#b3beb8'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#b3beb8'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#b3beb8'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#b3beb8'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#c9c8c8'
+
