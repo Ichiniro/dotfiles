@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Color files
-DFILE="$HOME/.config/discord/Themes/gruvbox.css"                                # Discord file
-FFILE="$HOME/.mozilla/firefox/5pqkp5gj.default-release/chrome/userChrome.css"   # Firefox file
+DFILE="$HOME/.config/BetterDiscord/themes/Slate.theme.css"                      # Discord file
+FFILE="$HOME/.mozilla/firefox/t89kxbn9.default-release/chrome/userChrome.css"   # Firefox file
 GFILE="$HOME/.themes/Bigsur-gtk/gtk-3.0/gtk.css"                                # Gtk file - light mode
 KFILE="$HOME/.config/kdeglobals"                                                # Kglobal file
 LFILE="$HOME/.local/share/color-schemes/Lightly-Wal.colors"                     # Lightly dark file
@@ -134,6 +134,16 @@ pywal_get() {
     fi
 }
 
+# Get scheme
+pywal_get_scheme() {
+    wal --theme "$1" -q -t -n
+    wal_steam -w > /dev/null 2>&1
+
+    if [[ "$2" ]]; then
+        wal --theme "$1" "$2" -q -t -n
+    fi
+}
+
 # Change colors
 change_color() {
 	# polybar
@@ -184,17 +194,33 @@ change_color() {
 
     # Discord
     #echo "Set Discord colors"
-    sed -i -e "s/--bg1: #.*/--bg1: $BG;/g" $DFILE
-    sed -i -e "s/--bg2: #.*/--bg2: $BG;/g" $DFILE
-    sed -i -e "s/--bg3: #.*/--bg3: $COLDOS;/g" $DFILE
-    sed -i -e "s/--fg1: #.*/--fg1: $FGB;/g" $DFILE
-    sed -i -e "s/--fg2: #.*/--fg2: $COLDOS;/g" $DFILE
-    sed -i -e "s/--accent3: #.*/--accent3: $COLONCE;/g" $DFILE
+    #sed -i -e "s/--bg1: #.*/--bg1: $BG;/g" $DFILE
+    #sed -i -e "s/--bg2: #.*/--bg2: $BG;/g" $DFILE
+    #sed -i -e "s/--bg3: #.*/--bg3: $COLDOS;/g" $DFILE
+    #sed -i -e "s/--fg1: #.*/--fg1: $FGB;/g" $DFILE
+    #sed -i -e "s/--fg2: #.*/--fg2: $COLDOS;/g" $DFILE
+    #sed -i -e "s/--accent3: #.*/--accent3: $COLONCE;/g" $DFILE
+    sed -i -e "s/--accent:.*/--accent: $KBC;/g" $DFILE
+    sed -i -e "s/--background:.*/--background: $BG;/g" $DFILE
+    sed -i -e "s/--background-alt:.*/--background-alt: $BG;/g" $DFILE
+    sed -i -e "s/--background-light:.*/--background-light: $BG;/g" $DFILE
+    sed -i -e "s/--background-dark:.*/--background-dark: $BG;/g" $DFILE
+    sed -i -e "s/--background-modifier-hover:.*/--background-modifier-hover: ${COLDOS}30;/g" $DFILE
+    sed -i -e "s/--background-modifier-active:.*/--background-modifier-active: ${COLDOS}30;/g" $DFILE
+    sed -i -e "s/--toolbar-background:.*/--toolbar-background: $BG;/g" $DFILE
+
+    sed -i -e "s/--base-border:.*/--base-border: $BG;/g" $DFILE
+    sed -i -e "s/--toolbar-border:.*/--toolbar-border: $BG;/g" $DFILE
+
+    sed -i -e "s/--text-normal:.*/--text-normal: $FGB;/g" $DFILE
+    sed -i -e "s/--text-focus:.*/--text-focus: $COLDOS;/g" $DFILE
+    sed -i -e "s/--text-muted:.*/--text-muted: $color14;/g" $DFILE
 
     # Set the new kwin border color
     #echo "Set kwin border color"
     sed -i -e "s/frame=.*/frame=$KBC/g" $KFILE # Use KBC to put accent color
-    sed -i -e "s/inactiveFrame=.*/inactiveFrame=$KBI/g" $KFILE
+    #sed -i -e "s/inactiveFrame=.*/inactiveFrame=$KBI/g" $KFILE #Same color as window
+    sed -i -e "s/inactiveFrame=.*/inactiveFrame=$NEW_GTKAA/g" $KFILE #Alternative
     # In order to just have one border we need to set the title bar,
     # title foreground, etc in the same color as the background
     sed -i -e "s/activeBackground=.*/activeBackground=$KBI/g" $KFILE
@@ -277,7 +303,7 @@ change_color() {
     sed -i -e "s/ZSH_HIGHLIGHT_STYLES\[builtin\]=.*/ZSH_HIGHLIGHT_STYLES\[builtin\]='fg=$COLCUATRO'/g" $ZSHFILE
     sed -i -e "s/ZSH_HIGHLIGHT_STYLES\[precommand\]=.*/ZSH_HIGHLIGHT_STYLES\[precommand\]='fg=$COLCUATRO'/g" $ZSHFILE
     sed -i -e "s/ZSH_HIGHLIGHT_STYLES\[unknown-token\]=.*/ZSH_HIGHLIGHT_STYLES\[unknown-token\]='fg=$FGB'/g" $ZSHFILE
-    
+
 
 
     spicetify update > /dev/null 2>&1
@@ -287,24 +313,31 @@ change_color() {
 }
 
 # Main
-#if [[ -f "/usr/bin/wal" ]]; then
-if [[ -f "$HOME/.local/bin/wal" ]]; then
+if [[ -f "/usr/bin/wal" ]]; then
+#if [[ -f "$HOME/.local/bin/wal" ]]; then
     #SOURCE="$HOME/Pictures/Wallpapers/83442302_p0_1.png"
     BACKEND="wal"
     ACCENT=2
-    while getopts i:b:l option
+    while getopts i:b:c:l option
         do
         case "${option}"
             in
             i) SOURCE=${OPTARG};;
             b) BACKEND="${OPTARG}";;
+            c) THEME="${OPTARG}";;
             l) LIGHT="-l";;
         esac
     done
 
-	if [[ -n "$SOURCE" ]]; then
+	if [[ -n "$SOURCE" ]]||[[ -n "$THEME" ]]; then
 
-        pywal_get "$SOURCE" "$LIGHT" "$BACKEND"
+        if [[ "$THEME" ]]; then
+            echo "Using theme"
+            pywal_get_scheme "$THEME" "$LIGHT"
+        else
+            echo "Using source"
+            pywal_get "$SOURCE" "$LIGHT" "$BACKEND"
+        fi
 
 		# Source the pywal color file
         . "$HOME/.cache/wal/colors.sh"
@@ -378,7 +411,7 @@ if [[ -f "$HOME/.local/bin/wal" ]]; then
 
         # Color for the border kwin - whe need to convert to rgb first
         KHEX=`printf "%s\n" "${color2:1}"`
-        KBHEX=`printf "%s\n" "${background:1}"`
+        KBHEX=`printf "%s\n" "${background:1}"` # Same color as window
         KBC=$(hex_to_rgb "$KHEX")
         KBI=$(hex_to_rgb "$KBHEX")
 
@@ -412,18 +445,20 @@ if [[ -f "$HOME/.local/bin/wal" ]]; then
         fi
 
 		change_color
+        # Reload Gtk theme on the fly uncomment until I can modify the theme
+        dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Default'
+        dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Bigsur-gtk'
+
+        if [[ -n "$SOURCE" ]]; then
+            set_wallpaper $SOURCE
+        fi
 
         # Reload color scheme, manually until I find a workaround
         echo -e "[!] You may need to restart some programs to see the changes"
         echo -e "[!] Press Ctrl+Shift+r to reload the spotify theme"
         echo -e "[!] Reapply Lightly-Dark to re-load the colors without errors"
-        set_wallpaper $SOURCE
         kcmshell5 colors > /dev/null 2>&1
         sh $HOME/.config/autostart-scripts/launch.sh
-
-        # Reload Gtk theme on the fly uncomment until I can modify the theme
-        dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Default'
-        dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Bigsur-gtk'
 	else
 		echo -e "[!] Please enter the path to wallpaper. \n"
 		echo "Usage : ./pywal.sh path/to/image"
