@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/korewagian/.oh-my-zsh"
+export ZSH="/home/ichiniro/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -144,6 +144,8 @@ mkcd () {
 }
 
 unsetopt prompt_cr prompt_sp
+
+setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 
 # Add pip3 to PATH
@@ -155,9 +157,9 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 
 # Custom highlight
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[alias]='fg=#b3beb8'
-ZSH_HIGHLIGHT_STYLES[command]='fg=#b3beb8'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=#b3beb8'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=#b3beb8'
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#c9c8c8'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#D4C3B3'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#D4C3B3'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#D4C3B3'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#D4C3B3'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#374134'
 

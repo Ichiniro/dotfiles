@@ -41,6 +41,8 @@ Plug 'miyakogi/conoline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'codota/tabnine-vim'
 Plug 'junegunn/goyo.vim'
+"Plug 'mg979/vim-xtabline'
+"Plug 'itchyny/lightline.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -266,6 +268,13 @@ noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
+
+" Lightline confs
+"if !has('gui_running')
+""  set t_Co=256
+"endif
+"set noshowmode
+"let g:lightline = {'colorscheme':'seoul256'}
 
 " Colors for highlighted line
 let g:conoline_auto_enable = 0

@@ -194,12 +194,6 @@ change_color() {
 
     # Discord
     #echo "Set Discord colors"
-    #sed -i -e "s/--bg1: #.*/--bg1: $BG;/g" $DFILE
-    #sed -i -e "s/--bg2: #.*/--bg2: $BG;/g" $DFILE
-    #sed -i -e "s/--bg3: #.*/--bg3: $COLDOS;/g" $DFILE
-    #sed -i -e "s/--fg1: #.*/--fg1: $FGB;/g" $DFILE
-    #sed -i -e "s/--fg2: #.*/--fg2: $COLDOS;/g" $DFILE
-    #sed -i -e "s/--accent3: #.*/--accent3: $COLONCE;/g" $DFILE
     sed -i -e "s/--accent:.*/--accent: $KBC;/g" $DFILE
     sed -i -e "s/--background:.*/--background: $BG;/g" $DFILE
     sed -i -e "s/--background-alt:.*/--background-alt: $BG;/g" $DFILE
@@ -252,7 +246,7 @@ change_color() {
 
     # Modify shadows according to the theme
     if [[ "$LIGHT" == "-l" ]]; then
-        kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 40
+        kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 30
         qdbus org.kde.KWin /KWin reconfigure
     else
         kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 190
@@ -304,12 +298,9 @@ change_color() {
     sed -i -e "s/ZSH_HIGHLIGHT_STYLES\[precommand\]=.*/ZSH_HIGHLIGHT_STYLES\[precommand\]='fg=$COLCUATRO'/g" $ZSHFILE
     sed -i -e "s/ZSH_HIGHLIGHT_STYLES\[unknown-token\]=.*/ZSH_HIGHLIGHT_STYLES\[unknown-token\]='fg=$FGB'/g" $ZSHFILE
 
-
-
     spicetify update > /dev/null 2>&1
 
     #echo "Colors updated!"
-
 }
 
 # Main
@@ -332,10 +323,8 @@ if [[ -f "/usr/bin/wal" ]]; then
 	if [[ -n "$SOURCE" ]]||[[ -n "$THEME" ]]; then
 
         if [[ "$THEME" ]]; then
-            echo "Using theme"
             pywal_get_scheme "$THEME" "$LIGHT"
         else
-            echo "Using source"
             pywal_get "$SOURCE" "$LIGHT" "$BACKEND"
         fi
 
@@ -379,8 +368,6 @@ if [[ -f "/usr/bin/wal" ]]; then
         # On RGB
         BGrgb=$(hex_to_rgb "$BG_1")
         FGrgb=$(hex_to_rgb "$FG_1")
-
-
 
         # TODO: Optimize this shit later
         # Colors for spicetify
@@ -444,9 +431,9 @@ if [[ -f "/usr/bin/wal" ]]; then
             NEW_GTKAB=$(rgb_to_hex "${NEW_GTKBG:1}")
         fi
 
-		change_color
         # Reload Gtk theme on the fly uncomment until I can modify the theme
         dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Default'
+        change_color
         dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Bigsur-gtk'
 
         if [[ -n "$SOURCE" ]]; then
