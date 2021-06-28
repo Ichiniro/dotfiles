@@ -36,7 +36,7 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'wakatime/vim-wakatime'
 Plug 'raimondi/delimitmate'
 Plug 'yuttie/comfortable-motion.vim'
-Plug 'miyakogi/conoline.vim'
+"Plug 'miyakogi/conoline.vim'
 "Plug 'severin-lemaignan/vim-minimap'
 Plug 'ryanoasis/vim-devicons'
 Plug 'codota/tabnine-vim'
@@ -271,12 +271,11 @@ let g:comfortable_motion_scroll_up_key = "k"
 
 " Lightline confs
 "if !has('gui_running')
-""  set t_Co=256
+  "set t_Co=256
 "endif
 "set noshowmode
-"let g:lightline = {'colorscheme':'seoul256'}
+"let g:lightline = {'colorscheme':'one'}
 
 " Colors for highlighted line
 let g:conoline_auto_enable = 0
-"let g:conoline_color_normal_dark = 'guibg=#303030 guifg=#ffffff'
-"let g:conoline_color_insert_dark = 'guibg=#404040 guifg=#ffffff'
+

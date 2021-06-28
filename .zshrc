@@ -154,12 +154,14 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 #sh ~/.toys/maki.sh
 #figlet "Nanisore? Imi wakannai" -c -k -t
 
+# Ignore some commands from history
+HISTORY_IGNORE='(:q *|fet *|colorpanes *|colorline *|cpumode *|cpuperformance *|cpupowersave *|ls *|rice *)'
 
 # Custom highlight
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[alias]='fg=#D4C3B3'
-ZSH_HIGHLIGHT_STYLES[command]='fg=#D4C3B3'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=#D4C3B3'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=#D4C3B3'
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#374134'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#C98674'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#C98674'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#C98674'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#C98674'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#754D42'
 

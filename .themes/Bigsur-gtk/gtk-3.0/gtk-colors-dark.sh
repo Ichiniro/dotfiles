@@ -1,6 +1,5 @@
-old_gtk_background='#121416'
-old_gtk_accent='#9AA175'
-old_gtk_secondary_background='#2A2C2E'
-old_gtk_third_background='#06080A'
-old_gtk_inactive_background='#25262A'
-old_gtk_inactive_background='#1C1E1F'
+old_gtk_background='#312525'
+old_gtk_accent='#7CCAA8'
+old_gtk_secondary_background='#111111'
+old_gtk_third_background='#000000'
+
