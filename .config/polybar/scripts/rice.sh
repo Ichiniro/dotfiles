@@ -163,6 +163,7 @@ change_color() {
 	sed -i -e "s/primary = #.*/primary = $AC/g" $PFILE
 	sed -i -e 's/red = #.*/red = #B71C1C/g' $PFILE
 	sed -i -e 's/yellow = #.*/yellow = #F57F17/g' $PFILE
+	sed -i -e "s/fg-act = #.*/fg-act = $FAC/g" $PFILE
 
 	# rofi
 	cat > $RFILE <<- EOF
@@ -433,9 +434,10 @@ if [[ -f "/usr/bin/wal" ]]; then
 
 			BGA=`printf "%s\n" "$WH_accent_1"` # 7 if dark, 1 if light
 			FGA=`printf "%s\n" "$WH_accent_1"`
-			AC=`printf "%s\n" "$color7"` # 1 if dark, 7 if light
+			FAC=`printf "%s\n" "$color7"` # 1 if dark, 7 if light
+			AC=`printf "%s\n" "$WH_accent_1"` # 1 if dark, 7 if light
 
-			kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 35
+			kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 45
 			qdbus org.kde.KWin /KWin reconfigure
 		else # Dark mode
 			GFILE="$HOME/.themes/Bigsur-gtk/gtk-3.0/gtk-dark.css"
@@ -448,8 +450,9 @@ if [[ -f "/usr/bin/wal" ]]; then
 			BGA=`printf "%s\n" "$WH_accent_3"` # 7 if dark, 1 if light
 			FGA=`printf "%s\n" "$WH_accent_3"`
 			AC=`printf "%s\n" "$WH_accent_1"` # 1 if dark, 7 if light
+			FAC=`printf "%s\n" "$WH_accent_1"` # 1 if dark, 7 if light
 
-			kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 180
+			kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 200
 			qdbus org.kde.KWin /KWin reconfigure
 		fi
 
@@ -468,7 +471,7 @@ if [[ -f "/usr/bin/wal" ]]; then
 		echo -e "[!] Reapply Lightly-wal to reload the colors without errors"
 
 		kcmshell5 colors > /dev/null 2>&1
-		sh $HOME/.config/autostart-scripts/launch.sh
+		sh $HOME/.config/polybar/launch.sh
 		spicetify update > /dev/null 2>&1
 
 	else
