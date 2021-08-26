@@ -159,9 +159,9 @@ HISTORY_IGNORE='(:q *|fet *|colorpanes *|colorline *|cpumode *|cpuperformance *|
 
 # Custom highlight
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[alias]='fg=#C98674'
-ZSH_HIGHLIGHT_STYLES[command]='fg=#C98674'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=#C98674'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=#C98674'
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#754D42'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#bc555a'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#bc555a'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#bc555a'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#bc555a'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#3e3e3d'
 

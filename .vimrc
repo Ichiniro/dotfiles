@@ -28,7 +28,7 @@ Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'rust-lang/rust.vim'
+"Plug 'rust-lang/rust.vim'
 Plug 'fehawen/cs.vim'
 Plug 'fehawen/sl.vim'
 Plug 'ap/vim-css-color'
@@ -43,6 +43,8 @@ Plug 'codota/tabnine-vim'
 Plug 'junegunn/goyo.vim'
 "Plug 'mg979/vim-xtabline'
 "Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
@@ -65,7 +67,7 @@ scriptencoding utf-8
 set encoding=utf-8
 
 " Hide mode (shown in status line)
-"set noshowmode
+set noshowmode
 
 " When a file has been changed outside of Vim, automatically read it again
 set autoread
@@ -278,4 +280,13 @@ let g:comfortable_motion_scroll_up_key = "k"
 
 " Colors for highlighted line
 let g:conoline_auto_enable = 0
+
+" vim-airline config
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_focuslost_inacitve = 0
+let g:airline_section_c_only_filename = 1
+let g:airline#extensions#nerdtree_statusline = 1
+let g:airline#extensions#ycm#enabled = 1
+let g:airline_theme='solarized'
 
