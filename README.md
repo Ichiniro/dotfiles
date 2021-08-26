@@ -5,7 +5,7 @@
 
 A repo for my current dotfiles. They're made to work with KDE Plasma.
 
- ![Homescreen](Pictures/Showcase/Homescreen.png)
+ ![Homescreen](Backgrounds/Showcase/Homescreen.png)
 
 ---
 
@@ -33,7 +33,7 @@ I'm using `zsh` with [oh-my-zsh](https://ohmyz.sh/) to customize it. I'm using `
 <details>
   <summary>Click to show Konsole Screenshot</summary>
 
-  ![Konsole](Pictures/Showcase/Konsole.png)
+  ![Konsole](Backgrounds/Showcase/Konsole.png)
 
 </details>
 
@@ -44,7 +44,7 @@ I'm a young `vim` enthusiast so this is my editor of preference with [Ale](https
 <details>
   <summary>Click to show Vim Screenshot</summary>
 
-  ![Editor](Pictures/Showcase/Editor.png)
+  ![Editor](Backgrounds/Showcase/Editor.png)
 
 </details>
 
@@ -54,7 +54,7 @@ I'm a young `vim` enthusiast so this is my editor of preference with [Ale](https
 <details>
   <summary>Click to show VS Code Screenshot</summary>
 
-  ![VSCode](Pictures/Showcase/VSCode.png)
+  ![VSCode](Backgrounds/Showcase/VSCode.png)
 
 </details>
 
@@ -65,7 +65,7 @@ I'm a young `vim` enthusiast so this is my editor of preference with [Ale](https
 <details>
   <summary>Click to show Spotify Screenshot</summary>
 
-  ![Spotify](Pictures/Showcase/Spotify.png)
+  ![Spotify](Backgrounds/Showcase/Spotify.png)
 
 </details>
 
@@ -76,7 +76,7 @@ I'm a young `vim` enthusiast so this is my editor of preference with [Ale](https
  <details>
   <summary>Click to show Discord Screenshot</summary>
 
-  ![Discord](Pictures/Showcase/Discord.png)
+  ![Discord](Backgrounds/Showcase/Discord.png)
 
 </details>
 
@@ -87,7 +87,7 @@ I'm also using [wal_steam](https://github.com/kotajacob/wal_steam) wich is in th
 <details>
   <summary>Click to show Steam Screenshot</summary>
 
-  ![Steam](Pictures/Showcase/Steam.png)
+  ![Steam](Backgrounds/Showcase/Steam.png)
 
 </details>
 
@@ -98,7 +98,7 @@ I forked [Kanji](https://github.com/Alededorigo/Kanji) to make my startpage and 
 <details>
   <summary>Click to show Firefox Screenshot</summary>
 
-  ![Firefox](Pictures/Showcase/Firefox.png)
+  ![Firefox](Backgrounds/Showcase/Firefox.png)
 
 </details>
 
@@ -133,7 +133,7 @@ or using the alias
 <details>
   <summary>View example</summary>
 
-  ![Showdark](Pictures/Showcase/Show_dark.gif)
+  ![Showdark](Backgrounds/Showcase/Show_dark.gif)
   
 </details>
 
@@ -144,7 +144,7 @@ or using the alias
 <details>
   <summary>View example</summary>
 
-  ![Showlight](Pictures/Showcase/Show_light.gif)
+  ![Showlight](Backgrounds/Showcase/Show_light.gif)
 
 </details>
 

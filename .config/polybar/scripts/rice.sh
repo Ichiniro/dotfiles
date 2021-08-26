@@ -24,7 +24,6 @@ function set_wallpaper {
 										"General");
 			d.writeConfig("Image", "file:'$1'");
 	}'
-	#echo "Wallpaper set!"
 }
 
 # Convert HEX color to rgb
@@ -96,14 +95,7 @@ function rgb_to_hex {
 		RGB=$(hex_to_rgb "${NEW_GTKBG:1}" "2" "3")
 	fi
 
-	#echo $RGB
-
 	IFS=',' read -ra FINAL <<< "$RGB"
-	# Print the values
-	#for i in "${FINAL[@]}"
-	#do
-	#	echo $i
-	#done
 
 	R=`echo "${FINAL[0]}" | xargs printf '%x\n' | tr '[:lower:]' '[:upper:]'`
 	G=`echo "${FINAL[1]}" | xargs printf '%x\n' | tr '[:lower:]' '[:upper:]'`
@@ -214,8 +206,8 @@ change_color() {
 	sed -i -e "s/--text-muted:.*/--text-muted: $WH_accent_2;/g" $DFILE
 
 	# Set the new kwin border color
-	sed -i -e "s/frame=.*/frame=$RGB_accent_1/g" $KFILE # Use RGB_accent_1 to put accent color
-	#sed -i -e "s/frame=.*/frame=$rgb_Background/g" $KFILE # Use RGB_accent_1 to put accent color
+	#sed -i -e "s/frame=.*/frame=$RGB_accent_1/g" $KFILE # Use RGB_accent_1 to put accent color
+	sed -i -e "s/frame=.*/frame=$rgb_Background/g" $KFILE # Use rgb_background to no to use accent color
 	sed -i -e "s/inactiveFrame=.*/inactiveFrame=$rgb_Background/g" $KFILE #Same color as window
 	#sed -i -e "s/inactiveFrame=.*/inactiveFrame=$NEW_GTKAA/g" $KFILE #Alternative
 
@@ -437,7 +429,7 @@ if [[ -f "/usr/bin/wal" ]]; then
 			FAC=`printf "%s\n" "$color7"` # 1 if dark, 7 if light
 			AC=`printf "%s\n" "$WH_accent_1"` # 1 if dark, 7 if light
 
-			kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 45
+			kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 64
 			qdbus org.kde.KWin /KWin reconfigure
 		else # Dark mode
 			GFILE="$HOME/.themes/Bigsur-gtk/gtk-3.0/gtk-dark.css"
