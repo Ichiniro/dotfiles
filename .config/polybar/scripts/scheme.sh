@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Color scheme
+SCHEME="$HOME/.config/polybar/color-scheme/colors.json"
+
+# Firefox rute always fucking changes
+
 # Color files
 DFILE="$HOME/.config/BetterDiscord/themes/Slate.theme.css"						# Discord file
 FFILE="$HOME/.mozilla/firefox/t89kxbn9.default-release/chrome/userChrome.css"	# Firefox file
@@ -9,6 +14,7 @@ LFILE="$HOME/.local/share/color-schemes/Lightly-Wal.colors"						# Lightly dark 
 PFILE="$HOME/.config/polybar/colors.ini"										# Polybar file
 RFILE="$HOME/.config/polybar/scripts/rofi/colors.rasi"							# Rofi file
 SFILE="$HOME/.config/spicetify/Themes/google-spicetify/color.ini"				# Spotify file
+VFILE="$HOME/.config/Code - OSS/User/settings.json"							# VS Code file
 ZFILE="$HOME/.config/zathura/zathurarc"											# Zathura file
 ZSHFILE="$HOME/.zshrc"															# Zshrc file
 
@@ -83,17 +89,20 @@ function hex_to_rgb {
 	fi
 }
 
-# Convert RGB to HEX
-# rgb_to_hex: 1 param: Endarks
-#			 2 param: Enlights
 function rgb_to_hex {
-	if [[ "$2" ]]; then # Light mode
-		#echo "Light"
-		RGB=$(hex_to_rgb "${NEW_GTKBG:1}" "2")
-	else # Dark mode
-		#echo "Dark"
-		RGB=$(hex_to_rgb "${NEW_GTKBG:1}" "2" "3")
-	fi
+
+	case "$2"
+		in
+		"normal")
+			RGB=$1
+		;;
+		"light")
+			RGB=$(hex_to_rgb "${NEW_GTKBG:1}" "2")
+		;;
+		"dark")
+			RGB=$(hex_to_rgb "${NEW_GTKBG:1}" "2" "3")
+		;;
+	esac
 
 	IFS=',' read -ra FINAL <<< "$RGB"
 
@@ -114,6 +123,25 @@ function rgb_to_hex {
 	fi
 
 	echo "#$R$G$B"
+}
+
+# Get colors
+pywal_get() {
+	wal -i "$1" -q -t -n -e --backend "$3"
+	wal_steam -w > /dev/null 2>&1
+
+	if [[ "$2" ]]; then
+		wal -i "$1" "$2" -q -t -n -e --backend $3 #--backend colorz
+	fi
+}
+
+pywal_get_custom() {
+	wal -i "$1" -t -n -e --backend "$3" -b "$4"
+	wal_steam -w > /dev/null 2>&1
+
+	if [[ "$2" ]]; then
+		wal -i "$1" "$2" -t -n -e --backend $3 -b "$4"
+	fi
 }
 
 # Change colors
@@ -148,7 +176,7 @@ change_color() {
 	sed -i -e "s/main_bg = .*/main_bg = $NH_Background/g" $SFILE
 	sed -i -e "s/sidebar_and_player_bg = .*/sidebar_and_player_bg = $NH_Background/g" $SFILE
 	sed -i -e "s/indicator_fg_and_button_bg = .*/indicator_fg_and_button_bg = $NH_accent_1/g" $SFILE
-	sed -i -e "s/slider_bg = .*/slider_bg = $NH_accent_3/g" $SFILE
+	sed -i -e "s/slider_bg = .*/slider_bg = ${WH_bg_alt:1}/g" $SFILE
 	sed -i -e "s/sidebar_indicator_and_hover_button_bg = .*/sidebar_indicator_and_hover_button_bg = $NH_accent_3/g" $SFILE
 	sed -i -e "s/miscellaneous_bg = .*/miscellaneous_bg = $NH_accent_3/g" $SFILE #HBB
 	sed -i -e "s/miscellaneous_hover_bg = .*/miscellaneous_hover_bg = $NH_Background/g" $SFILE #HB
@@ -178,9 +206,10 @@ change_color() {
 
 	# Set the new kwin border color
 	sed -i -e "s/frame=.*/frame=$RGB_accent_1/g" $KFILE # Use RGB_accent_1 to put accent color
+	sed -i -e "s/inactiveFrame=.*/inactiveFrame=$rgb_Background_alt/g" $KFILE #Alternative
+
 	#sed -i -e "s/frame=.*/frame=$rgb_Background/g" $KFILE # Use rgb_background to no to use accent color
-	sed -i -e "s/inactiveFrame=.*/inactiveFrame=$rgb_Background/g" $KFILE #Same color as window
-	#sed -i -e "s/inactiveFrame=.*/inactiveFrame=$NEW_GTKAA/g" $KFILE #Alternative
+	#sed -i -e "s/inactiveFrame=.*/inactiveFrame=$rgb_Background/g" $KFILE #Same color as window
 
 	# In order to just have one border we need to set the title bar,
 	# title foreground, etc in the same color as the background
@@ -197,6 +226,7 @@ change_color() {
 	sed -i -e "s/inactiveBackground=.*/inactiveBackground=$rgb_Background/g" $LFILE
 	sed -i -e "s/inactiveBlend=.*/inactiveBlend=$rgb_Background/g" $LFILE
 	sed -i -e "s/inactiveForeground=.*/inactiveForeground=$rgb_Background/g" $LFILE
+
 	# Lightly background
 	sed -i -e "s/BackgroundNormal=.*/BackgroundNormal=$rgb_Background/g" $LFILE
 	sed -i -e "64 s/BackgroundAlternate=.*/BackgroundAlternate=$rgb_Background/g" $LFILE
@@ -246,6 +276,17 @@ change_color() {
 	sed -i -e "s/ZSH_HIGHLIGHT_STYLES\[precommand\]=.*/ZSH_HIGHLIGHT_STYLES\[precommand\]='fg=$WH_accent_1'/g" $ZSHFILE
 	sed -i -e "s/ZSH_HIGHLIGHT_STYLES\[unknown-token\]=.*/ZSH_HIGHLIGHT_STYLES\[unknown-token\]='fg=$WH_Foreground'/g" $ZSHFILE
 
+	# Update colorscheme
+	sed -i -e "s/\"background\":.*/\"background\": \"$background\",/g" $SCHEME
+	sed -i -e "s/\"foreground\":.*/\"foreground\": \"$foreground\",/g" $SCHEME
+	sed -i -e "s/\"color0\":.*/\"color0\": \"$background\",/g" $SCHEME
+	sed -i -e "s/\"color1\":.*/\"color1\": \"$WH_accent_1\",/g" $SCHEME
+	sed -i -e "s/\"color7\":.*/\"color7\": \"$foreground\",/g" $SCHEME #8367C7
+	sed -i -e "s/\"color9\":.*/\"color9\": \"$WH_accent_1\",/g" $SCHEME
+	sed -i -e "s/\"color15\":.*/\"color15\": \"$foreground\"/g" $SCHEME
+
+	#VS Code?
+	sed -i -e "s/\"variables\":.*/\"variables\": \"$WH_accent_1\",/g" "$VFILE"
 }
 
 # Main
@@ -266,15 +307,18 @@ if [[ -f "/usr/bin/wal" ]]; then
 		esac
 	done
 
-	if [[ -n "$SOURCE" ]]||[[ -n "$THEME" ]]; then
+	if [[ -n "$SOURCE" ]]; then
 
-		if [[ "$THEME" ]]; then
-			pywal_get_scheme "$THEME" "$LIGHT"
-		elif [[ -n $CUSTOMBG ]]; then #new
-			pywal_get_custom "$SOURCE" "$LIGHT" "$BACKEND" "$CUSTOMBG" #new
+		if [[ -n $CUSTOMBG ]]; then
+			pywal_get_custom "$SOURCE" "$LIGHT" "$BACKEND" "$CUSTOMBG"
 		else
 			pywal_get "$SOURCE" "$LIGHT" "$BACKEND"
 		fi
+
+		#if [[ -n "$SOURCE" ]]; then
+			#set_wallpaper $SOURCE
+		#fi
+		plasma-apply-wallpaperimage $SOURCE
 
 		# Source the pywal color file
 		. "$HOME/.cache/wal/colors.sh"
@@ -287,19 +331,9 @@ if [[ -f "/usr/bin/wal" ]]; then
 			. "$HOME/.themes/Bigsur-gtk/gtk-3.0/gtk-colors-dark.sh"
 		fi
 
-		#######################################################################
-
 		# Get all color with Hash
 		WH_Background=`printf "%s\n" "$background"`
 		WH_Foreground=`printf "%s\n" "$foreground"`
-		WH_color1=`printf "%s\n" "$color1"`
-		WH_color2=`printf "%s\n" "$color2"`
-		WH_color3=`printf "%s\n" "$color3"`
-		WH_color4=`printf "%s\n" "$color4"`
-		WH_color5=`printf "%s\n" "$color5"`
-		WH_color6=`printf "%s\n" "$color6"`
-		WH_color7=`printf "%s\n" "$color7"`
-		WH_color8=`printf "%s\n" "$color8"`
 
 		# Get color with no hash
 		NH_Background=`printf "%s\n" "${background:1}"`
@@ -308,29 +342,19 @@ if [[ -f "/usr/bin/wal" ]]; then
 		# On RGB, send colors with no hash
 		rgb_Background=$(hex_to_rgb "$NH_Background")
 		rgb_Foreground=$(hex_to_rgb "$NH_Foreground")
-		rgb_color1=$(hex_to_rgb "${color1:1}")
-		rgb_color2=$(hex_to_rgb "${color2:1}")
-		rgb_color3=$(hex_to_rgb "${color3:1}")
-		rgb_color4=$(hex_to_rgb "${color4:1}")
-		rgb_color5=$(hex_to_rgb "${color5:1}")
-		rgb_color6=$(hex_to_rgb "${color6:1}")
-		rgb_color7=$(hex_to_rgb "${color7:1}")
-		rgb_color8=$(hex_to_rgb "${color8:1}")
-
-		#######################################################################
 
 		# Case to change the accent color
-		WH_accent_1=${WH_color1}
-		WH_accent_2=${WH_color6}
-		WH_accent_3=${WH_color7}
+		WH_accent_1=`printf "%s\n" "$color1"`
+		WH_accent_2=`printf "%s\n" "$color6"`
+		WH_accent_3=`printf "%s\n" "$color7"`
 
-		NH_accent_1=${WH_color1:1}
-		NH_accent_2=${WH_color6:1}
-		NH_accent_3=${WH_color7:1}
+		NH_accent_1=`printf "%s\n" "${color1:1}"`
+		NH_accent_2=`printf "%s\n" "${color6:1}"`
+		NH_accent_3=`printf "%s\n" "${color7:1}"`
 
-		RGB_accent_1=${rgb_color1}
-		RGB_accent_2=${rgb_color6}
-		RGB_accent_3=${rgb_color7}
+		RGB_accent_1=$(hex_to_rgb "${color1:1}")
+		RGB_accent_2=$(hex_to_rgb "${color6:1}")
+		RGB_accent_3=$(hex_to_rgb "${color7:1}")
 
 		# Get old gtk colors
 		OLD_GTKAC=`printf "%s\n" "$old_gtk_accent"`
@@ -340,51 +364,46 @@ if [[ -f "/usr/bin/wal" ]]; then
 
 		case "${ACCENT}"
 			in
-			1)
-				WH_accent_1=${WH_color1}
-				NH_accent_1=${WH_color1:1}
-				RGB_accent_1=${rgb_color1}
-			;;
 			2)
-				WH_accent_1=${WH_color2}
-				NH_accent_1=${WH_color2:1}
-				RGB_accent_1=${rgb_color2}
+				WH_accent_1=`printf "%s\n" "$color2"`
+				NH_accent_1=`printf "%s\n" "${color2:1}"`
+				RGB_accent_1=$(hex_to_rgb "${color2:1}")
 			;;
 			3)
-				WH_accent_1=${WH_color3}
-				NH_accent_1=${WH_color3:1}
-				RGB_accent_1=${rgb_color3}
+				WH_accent_1=`printf "%s\n" "$color3"`
+				NH_accent_1=`printf "%s\n" "${color3:1}"`
+				RGB_accent_1=$(hex_to_rgb "${color3:1}")
 			;;
 			4)
-				WH_accent_1=${WH_color4}
-				NH_accent_1=${WH_color4:1}
-				RGB_accent_1=${rgb_color4}
+				WH_accent_1=`printf "%s\n" "$color4"`
+				NH_accent_1=`printf "%s\n" "${color4:1}"`
+				RGB_accent_1=$(hex_to_rgb "${color4:1}")
 			;;
 			5)
-				WH_accent_1=${WH_color5}
-				NH_accent_1=${WH_color5:1}
-				RGB_accent_1=${rgb_color5}
+				WH_accent_1=`printf "%s\n" "$color5"`
+				NH_accent_1=`printf "%s\n" "${color5:1}"`
+				RGB_accent_1=$(hex_to_rgb "${color5:1}")
 			;;
 			6)
-				WH_accent_1=${WH_color6}
-				WH_accent_2=${WH_color1}
-				NH_accent_1=${WH_color6:1}
-				NH_accent_2=${WH_color1:1}
-				RGB_accent_1=${rgb_color6}
-				RGB_accent_2=${rgb_color1}
+				WH_accent_1=`printf "%s\n" "$color6"`
+				WH_accent_2=`printf "%s\n" "$color1"`
+				NH_accent_1=`printf "%s\n" "${color6:1}"`
+				NH_accent_2=`printf "%s\n" "${color1:1}"`
+				RGB_accent_1=$(hex_to_rgb "${color6:1}")
+				RGB_accent_2=$(hex_to_rgb "${color1:1}")
 			;;
 			7)
-				WH_accent_1=${WH_color7}
-				WH_accent_3=${WH_color1}
-				NH_accent_1=${WH_color7:1}
-				NH_accent_3=${WH_color1:1}
-				RGB_accent_1=${rgb_color7}
-				RGB_accent_3=${rgb_color1}
+				WH_accent_1=`printf "%s\n" "$color7"`
+				WH_accent_3=`printf "%s\n" "$color1"`
+				NH_accent_1=`printf "%s\n" "${color7:1}"`
+				NH_accent_3=`printf "%s\n" "${color1:1}"`
+				RGB_accent_1=$(hex_to_rgb "${color7:1}")
+				RGB_accent_3=$(hex_to_rgb "${color1:1}")
 			;;
 			8)
-				WH_accent_1=${WH_color8}
-				NH_accent_1=${WH_color8:1}
-				RGB_accent_1=${rgb_color8}
+				WH_accent_1=`printf "%s\n" "$color8"`
+				NH_accent_1=`printf "%s\n" "${color8:1}"`
+				RGB_accent_1=$(hex_to_rgb "${color8:1}")
 			;;
 		esac
 
@@ -400,15 +419,14 @@ if [[ -f "/usr/bin/wal" ]]; then
 			FAC=`printf "%s\n" "$color7"` # 1 if dark, 7 if light
 			AC=`printf "%s\n" "$WH_accent_1"` # 1 if dark, 7 if light
 
-			kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 64
-			qdbus org.kde.KWin /KWin reconfigure
+			kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 50
 		else # Dark mode
 			GFILE="$HOME/.themes/Bigsur-gtk/gtk-3.0/gtk-dark.css"
 			OLD_GTK=$HOME/.themes/Bigsur-gtk/gtk-3.0/gtk-colors-dark.sh
 
 			rgb_Background_alt=$(hex_to_rgb "${WH_Background:1}" "1")
-			WH_Background_alt_2=$(rgb_to_hex "${NEW_GTKBG:1}" "2")
-			WH_Background_alt_3=$(rgb_to_hex "${NEW_GTKBG:1}")
+			WH_Background_alt_2=$(rgb_to_hex "${NEW_GTKBG:1}" "light")
+			WH_Background_alt_3=$(rgb_to_hex "${NEW_GTKBG:1}" "dark")
 
 			BGA=`printf "%s\n" "$WH_accent_3"` # 7 if dark, 1 if light
 			FGA=`printf "%s\n" "$WH_accent_3"`
@@ -416,26 +434,32 @@ if [[ -f "/usr/bin/wal" ]]; then
 			FAC=`printf "%s\n" "$WH_accent_1"` # 1 if dark, 7 if light
 
 			kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 200
-			qdbus org.kde.KWin /KWin reconfigure
 		fi
+
+		WH_bg_alt=$(rgb_to_hex "${rgb_Background_alt}" "normal")
+
+		qdbus org.kde.KWin /KWin reconfigure
+
+		plasma-apply-colorscheme Breeze > /dev/null 2>&1
+		sleep 1s
 
 		# Reload Gtk theme on the fly uncomment until I can modify the theme
 		dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Default'
+
 		change_color
+
 		dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Bigsur-gtk'
 
-		if [[ -n "$SOURCE" ]]; then
-			set_wallpaper $SOURCE
-		fi
+		plasma-apply-colorscheme Lightly-Wal > /dev/null 2>&1
+		sleep 1s
 
-		# Reload color scheme, manually until I find a workaround
+		touch $HOME/.config/BetterDiscord/themes/Slate.theme.css
+
+		wal --theme $HOME/.config/polybar/color-scheme/colors.json -e -q
+
 		echo -e "[!] You may need to restart some programs to see the changes"
-		echo -e "[!] Press Ctrl+Shift+r to reload the spotify theme"
-		echo -e "[!] Reapply Lightly-wal to reload the colors without errors"
 
-		kcmshell5 colors > /dev/null 2>&1
 		sh $HOME/.config/polybar/launch.sh
-		spicetify update > /dev/null 2>&1
 
 	else
 		echo -e "[!] Please enter the path to wallpaper. \n"

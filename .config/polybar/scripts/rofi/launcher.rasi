@@ -8,7 +8,7 @@
  */
 
 configuration {
-	font:							"Helvetica 8";
+	font:							"Helvetica Bold 8";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
     display-drun: 					"";

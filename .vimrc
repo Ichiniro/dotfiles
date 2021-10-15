@@ -45,6 +45,7 @@ Plug 'junegunn/goyo.vim'
 "Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vimsence/vimsence'
 
 " Initialize plugin system
 call plug#end()
@@ -288,5 +289,11 @@ let g:airline_focuslost_inacitve = 0
 let g:airline_section_c_only_filename = 1
 let g:airline#extensions#nerdtree_statusline = 1
 let g:airline#extensions#ycm#enabled = 1
+" list of themes that follow my colorscheme
+" solarized
+" selenized_bw
+" monochrome
+" hybrid
+" biogoo
 let g:airline_theme='solarized'
 

@@ -133,6 +133,7 @@ alias cpuperformance="echo performance | sudo tee /sys/devices/system/cpu/cpu*/c
 alias cpupowersave="echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
 alias cpumode="cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 alias rice="sh $HOME/.config/polybar/scripts/rice.sh"
+alias sc="sh $HOME/.config/polybar/scripts/scheme.sh"
 alias endksession="qdbus org.kde.kmserver /KSMServer logout 1 3 3"
 alias colorpanes="sh $HOME/.toys/colorpanes"
 alias colorline="sh $HOME/.toys/colorline"
@@ -155,13 +156,13 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 #figlet "Nanisore? Imi wakannai" -c -k -t
 
 # Ignore some commands from history
-HISTORY_IGNORE='(:q *|fet *|colorpanes *|colorline *|cpumode *|cpuperformance *|cpupowersave *|ls *|rice *)'
+HISTORY_IGNORE='(fet *|colorpanes *|colorline *|cpumode *|cpuperformance *|cpupowersave *|ls *|rice *|sc *|:q *)'
 
 # Custom highlight
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[alias]='fg=#bc555a'
-ZSH_HIGHLIGHT_STYLES[command]='fg=#bc555a'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=#bc555a'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=#bc555a'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#b07872'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#b07872'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#b07872'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#b07872'
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#3e3e3d'
 

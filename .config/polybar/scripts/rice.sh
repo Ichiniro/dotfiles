@@ -199,6 +199,7 @@ change_color() {
 	sed -i -e "s/--background-modifier-hover:.*/--background-modifier-hover: ${WH_accent_1}30;/g" $DFILE
 	sed -i -e "s/--background-modifier-active:.*/--background-modifier-active: ${WH_accent_1}30;/g" $DFILE
 	sed -i -e "s/--toolbar-background:.*/--toolbar-background: $WH_Background;/g" $DFILE
+	sed -i -e "s/--toolbar-background-hover:.*/--toolbar-background-hover: ${H_accent_1}30;/g" $DFILE
 	sed -i -e "s/--base-border:.*/--base-border: $WH_Background;/g" $DFILE
 	sed -i -e "s/--toolbar-border:.*/--toolbar-border: $WH_Background;/g" $DFILE
 	sed -i -e "s/--text-normal:.*/--text-normal: $WH_Foreground;/g" $DFILE

@@ -1,0 +1,129 @@
+/**
+ * @name Slate
+ * @author Gibbu#1211 & Tropical#8908
+ * @version 1.5.15
+ * @invite TeRQEPb
+ * @description An optimized, consistent, and functional theme for Discord based on GitHub's design language.
+ * @source https://github.com/DiscordStyles/Slate/
+ * @website https://discordstyles.github.io/slate-theme/
+*/
+
+/*        _____                    _____            _____                _____                    _____
+         /\    \                  /\    \          /\    \              /\    \                  /\    \
+        /::\    \                /::\____\        /::\    \            /::\    \                /::\    \
+       /::::\    \              /:::/    /       /::::\    \           \:::\    \              /::::\    \
+      /::::::\    \            /:::/    /       /::::::\    \           \:::\    \            /::::::\    \
+     /:::/\:::\    \          /:::/    /       /:::/\:::\    \           \:::\    \          /:::/\:::\    \
+    /:::/__\:::\    \        /:::/    /       /:::/__\:::\    \           \:::\    \        /:::/__\:::\    \
+    \:::\   \:::\    \      /:::/    /       /::::\   \:::\    \          /::::\    \      /::::\   \:::\    \
+  ___\:::\   \:::\    \    /:::/    /       /::::::\   \:::\    \        /::::::\    \    /::::::\   \:::\    \
+ /\   \:::\   \:::\    \  /:::/    /       /:::/\:::\   \:::\    \      /:::/\:::\    \  /:::/\:::\   \:::\    \
+/::\   \:::\   \:::\____\/:::/____/       /:::/  \:::\   \:::\____\    /:::/  \:::\____\/:::/__\:::\   \:::\____\
+\:::\   \:::\   \::/    /\:::\    \       \::/    \:::\  /:::/    /   /:::/    \::/    /\:::\   \:::\   \::/    /
+ \:::\   \:::\   \/____/  \:::\    \       \/____/ \:::\/:::/    /   /:::/    / \/____/  \:::\   \:::\   \/____/
+  \:::\   \:::\    \       \:::\    \               \::::::/    /   /:::/    /            \:::\   \:::\    \
+   \:::\   \:::\____\       \:::\    \               \::::/    /   /:::/    /              \:::\   \:::\____\
+    \:::\  /:::/    /        \:::\    \              /:::/    /    \::/    /                \:::\   \::/    /
+     \:::\/:::/    /          \:::\    \            /:::/    /      \/____/                  \:::\   \/____/
+      \::::::/    /            \:::\    \          /:::/    /                                 \:::\    \
+       \::::/    /              \:::\____\        /:::/    /                                   \:::\____\
+        \::/    /                \::/    /        \::/    /                                     \::/    /
+         \/____/                  \/____/          \/____/                                       \/____/
+
+====================================================================================
+ Please view the full documentation at https://github.com/DiscordStyles/Slate/wiki
+====================================================================================
+*/
+
+/*
+====================================================================================
+                                Import Source Code
+====================================================================================
+*/
+
+@import url("https://discordstyles.github.io/AdjustableServerWidth/base.css");
+/*@import url("https://discordstyles.github.io/Slate/base.css");*/
+@import url("https://discordstyles.github.io/Slate/dist/Slate.css");
+
+/*
+====================================================================================
+                                  Basic Variables
+====================================================================================
+*/
+
+/*A full list of variables and their uses can be found in the documentation above.*/
+
+:root {
+  /*Primary Colors*/
+  --accent: 133,169,154;
+  --link-colour: 48, 144, 255;
+
+  /*Server List*/
+  --server-icon-size: 40px;
+  --server-icon-spacing: 8px;
+  --server-container-padding: 10px;
+
+  /* My edits */
+  --border-radius: 10px;
+  --avatar-radius: 10px;
+  --server-radius: 15px;
+
+  --background: #fbf9f8;
+  --background-alt: #fbf9f8;
+  --background-light: #fbf9f8;
+  --background-dark: #fbf9f8;
+  --background-modifier-hover: #85a99a30;
+  --background-modifier-active: #85a99a30;
+  --toolbar-background: #fbf9f8;
+  --toolbar-background-hover: 30;
+
+  --base-border: #fbf9f8;
+  --toolbar-border: #fbf9f8;
+  --toolbar-search-background: var(--background);
+  --toolbar-search-border: var(--text-normal);
+  /*--toolbar-text-focus:var(--accent);*/
+  --toolbar-text-focus: var(--text-focus);
+  --toolbar-text-normal: var(--text-focus);
+  --toolbar-text-muted: var(--text-focus);
+
+  --text-normal: #3e3e3e;
+  --text-focus: #85a99a;
+  --text-muted: #b04b61;
+
+  /*--font-family-sans-serif: 'VictorMono Nerd Font';
+  --font-family-monospace: 'VictorMono Nerd Font Mono';*/
+  --font-family-sans-serif: 'Helvetica';
+  --font-family-monospace: 'VictorMono Nerd Font Mono';
+  --font-size: 13px;
+}
+
+/*
+====================================================================================
+                Please place any Theme-specific Custom CSS Below here
+====================================================================================
+*/
+
+.card-2qZngs {
+    background-color: var(--background);
+    text-align: center;
+}
+
+.header-nbFv8R {
+    color: var(--text-focus);
+}
+
+.emptyHeader-3lmLcs {
+    color: var(--text-focus);
+}
+
+.colorStandard-2KCXvj {
+    color: var(--text-normal) !important;
+}
+.emptyText-2zjpZr {
+    color: var(--text-normal) !important;
+}
+
+/*.base-1x0h_U:before {
+    background: var(--text-focus) !important;
+}*/
+
