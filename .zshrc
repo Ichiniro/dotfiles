@@ -127,10 +127,10 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias fet="sh ~/.toys/fet.sh"
 alias :q="exit"
-alias lh='lsd -lh'
-alias ls='lsd'
-alias cpuperformance="echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
-alias cpupowersave="echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
+#alias lh='lsd -lh'
+#alias ls='lsd'
+#alias cpuperformance="echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
+#alias cpupowersave="echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
 alias cpumode="cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 alias rice="sh $HOME/.config/polybar/scripts/rice.sh"
 alias sc="sh $HOME/.config/polybar/scripts/scheme.sh"

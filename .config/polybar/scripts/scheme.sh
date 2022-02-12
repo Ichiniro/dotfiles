@@ -7,14 +7,14 @@ SCHEME="$HOME/.config/polybar/color-scheme/colors.json"
 
 # Color files
 DFILE="$HOME/.config/BetterDiscord/themes/Slate.theme.css"						# Discord file
-FFILE="$HOME/.mozilla/firefox/t89kxbn9.default-release/chrome/userChrome.css"	# Firefox file
-GFILE="$HOME/.themes/Bigsur-gtk/gtk-3.0/gtk.css"								# Gtk file - light mode
+FFILE="$HOME/.mozilla/firefox/fom8fblo.default-release/chrome/userChrome.css"	# Firefox file
+GFILE="$HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/gtk.css"					# Gtk file - light mode
 KFILE="$HOME/.config/kdeglobals"												# Kglobal file
 LFILE="$HOME/.local/share/color-schemes/Lightly-Wal.colors"						# Lightly dark file
 PFILE="$HOME/.config/polybar/colors.ini"										# Polybar file
 RFILE="$HOME/.config/polybar/scripts/rofi/colors.rasi"							# Rofi file
-SFILE="$HOME/.config/spicetify/Themes/google-spicetify/color.ini"				# Spotify file
-VFILE="$HOME/.config/Code - OSS/User/settings.json"							# VS Code file
+SFILE="$HOME/.config/spicetify/Themes/Onepunch/color.ini"						# Spotify file
+VFILE="$HOME/.config/Code - OSS/User/settings.json"								# VS Code file
 ZFILE="$HOME/.config/zathura/zathurarc"											# Zathura file
 ZSHFILE="$HOME/.zshrc"															# Zshrc file
 
@@ -137,7 +137,6 @@ pywal_get() {
 
 pywal_get_custom() {
 	wal -i "$1" -t -n -e --backend "$3" -b "$4"
-	wal_steam -w > /dev/null 2>&1
 
 	if [[ "$2" ]]; then
 		wal -i "$1" "$2" -t -n -e --backend $3 -b "$4"
@@ -170,17 +169,25 @@ change_color() {
 	}
 	EOF
 
-	# Spotify
-	sed -i -e "s/main_fg = .*/main_fg = $NH_accent_1/g" $SFILE
-	sed -i -e "s/secondary_fg = .*/secondary_fg = $NH_accent_1/g" $SFILE
-	sed -i -e "s/main_bg = .*/main_bg = $NH_Background/g" $SFILE
-	sed -i -e "s/sidebar_and_player_bg = .*/sidebar_and_player_bg = $NH_Background/g" $SFILE
-	sed -i -e "s/indicator_fg_and_button_bg = .*/indicator_fg_and_button_bg = $NH_accent_1/g" $SFILE
-	sed -i -e "s/slider_bg = .*/slider_bg = ${WH_bg_alt:1}/g" $SFILE
-	sed -i -e "s/sidebar_indicator_and_hover_button_bg = .*/sidebar_indicator_and_hover_button_bg = $NH_accent_3/g" $SFILE
-	sed -i -e "s/miscellaneous_bg = .*/miscellaneous_bg = $NH_accent_3/g" $SFILE #HBB
-	sed -i -e "s/miscellaneous_hover_bg = .*/miscellaneous_hover_bg = $NH_Background/g" $SFILE #HB
-	sed -i -e "s/preserve_1 = .*/preserve_1 = $NH_accent_3/g" $SFILE
+	# Spotify [New UI]
+	sed -i -e "48 s/text =.*/text = $NH_Foreground/g" $SFILE
+	sed -i -e "49 s/subtext =.*/subtext = $NH_accent_1/g" $SFILE
+	sed -i -e "50 s/extratext =.*/extratext = $NH_accent_2/g" $SFILE
+	sed -i -e "51 s/main =.*/main = $NH_Background/g" $SFILE
+	sed -i -e "52 s/sidebar =.*/sidebar = $NH_Background/g" $SFILE
+	sed -i -e "53 s/player =.*/player = $NH_Background/g" $SFILE
+	sed -i -e "54 s/sec-player =.*/sec-player = ${WH_bg_alt:1}/g" $SFILE
+	sed -i -e "55 s/card =.*/card = ${WH_bg_alt:1}/g" $SFILE
+	sed -i -e "56 s/sec-card =.*/sec-card = $NH_accent_3/g" $SFILE
+	sed -i -e "57 s/shadow =.*/shadow = $NH_Background/g" $SFILE
+	#sed -i -e "58 s/selected-row =.*/selected-row = $NH_Background/g" $SFILE
+	sed -i -e "59 s/button =.*/button = $NH_accent_1/g" $SFILE
+	sed -i -e "60 s/button-active =.*/button-active = $NH_accent_1/g" $SFILE
+	sed -i -e "61 s/button-disabled =.*/button-disabled = ${WH_bg_alt:1}/g" $SFILE
+	sed -i -e "62 s/tab-active =.*/tab-active = $NH_accent_3/g" $SFILE
+	sed -i -e "63 s/notification =.*/notification = $NH_accent_3/g" $SFILE
+	#sed -i -e "64 s/notification-error =.*/notification-error = $NH_accent_3/g" $SFILE
+	sed -i -e "65 s/misc =.*/misc = $NH_accent_1/g" $SFILE
 
 	# Firefox
 	sed -i -e "s/--light-color:.*/--light-color: $rgb_Foreground;/g" $FFILE
@@ -205,11 +212,11 @@ change_color() {
 	sed -i -e "s/--text-muted:.*/--text-muted: $WH_accent_2;/g" $DFILE
 
 	# Set the new kwin border color
-	sed -i -e "s/frame=.*/frame=$RGB_accent_1/g" $KFILE # Use RGB_accent_1 to put accent color
-	sed -i -e "s/inactiveFrame=.*/inactiveFrame=$rgb_Background_alt/g" $KFILE #Alternative
+	#sed -i -e "s/frame=.*/frame=$RGB_accent_1/g" $KFILE # Use RGB_accent_1 to put accent color
+	#sed -i -e "s/inactiveFrame=.*/inactiveFrame=$rgb_Background_alt/g" $KFILE #Alternative
 
-	#sed -i -e "s/frame=.*/frame=$rgb_Background/g" $KFILE # Use rgb_background to no to use accent color
-	#sed -i -e "s/inactiveFrame=.*/inactiveFrame=$rgb_Background/g" $KFILE #Same color as window
+	sed -i -e "s/frame=.*/frame=$rgb_Background/g" $KFILE # Use rgb_background to no to use accent color
+	sed -i -e "s/inactiveFrame=.*/inactiveFrame=$rgb_Background/g" $KFILE #Same color as window
 
 	# In order to just have one border we need to set the title bar,
 	# title foreground, etc in the same color as the background
@@ -252,6 +259,15 @@ change_color() {
 	sed -i -e "s/old_gtk_accent=.*/old_gtk_accent='$WH_accent_1'/g" $OLD_GTK
 	sed -i -e "s/old_gtk_secondary_background=.*/old_gtk_secondary_background='$WH_Background_alt_2'/g" $OLD_GTK
 	sed -i -e "s/old_gtk_third_background=.*/old_gtk_third_background='$WH_Background_alt_3'/g" $OLD_GTK
+	# Change SVG fill colors
+	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi.svg
+	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi1.svg
+	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi1X2.svg
+	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi2.svg
+	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi2X2.svg
+	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi3.svg
+	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi3X2.svg
+	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbiX2.svg
 
 	# Zathura colors
 	sed -i -e "s/set default-bg \"#.*/set default-bg \"$WH_Background\"/g" $ZFILE
@@ -310,14 +326,12 @@ if [[ -f "/usr/bin/wal" ]]; then
 	if [[ -n "$SOURCE" ]]; then
 
 		if [[ -n $CUSTOMBG ]]; then
+			pywal_get "$SOURCE" "$LIGHT" "$BACKEND"
 			pywal_get_custom "$SOURCE" "$LIGHT" "$BACKEND" "$CUSTOMBG"
 		else
 			pywal_get "$SOURCE" "$LIGHT" "$BACKEND"
 		fi
 
-		#if [[ -n "$SOURCE" ]]; then
-			#set_wallpaper $SOURCE
-		#fi
 		plasma-apply-wallpaperimage $SOURCE
 
 		# Source the pywal color file
@@ -325,10 +339,10 @@ if [[ -f "/usr/bin/wal" ]]; then
 
 		# Source old gtk colors
 		if [[ "$LIGHT" == "-l" ]]; then # Light mode
-			. "$HOME/.themes/Bigsur-gtk/gtk-3.0/gtk-colors.sh"
+			. "$HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/gtk-colors.sh"
 		else # Dark mode
 			# Gtk file - dark mode
-			. "$HOME/.themes/Bigsur-gtk/gtk-3.0/gtk-colors-dark.sh"
+			. "$HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/gtk-colors-dark.sh"
 		fi
 
 		# Get all color with Hash
@@ -408,7 +422,7 @@ if [[ -f "/usr/bin/wal" ]]; then
 		esac
 
 		if [[ "$LIGHT" == "-l" ]]; then # Light mode
-			OLD_GTK=$HOME/.themes/Bigsur-gtk/gtk-3.0/gtk-colors.sh
+			OLD_GTK=$HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/gtk-colors.sh
 
 			rgb_Background_alt=$(hex_to_rgb "${WH_Background:1}" "1" "2")
 			WH_Background_alt_2=`printf "%s\n" "$old_gtk_background"`
@@ -419,10 +433,11 @@ if [[ -f "/usr/bin/wal" ]]; then
 			FAC=`printf "%s\n" "$color7"` # 1 if dark, 7 if light
 			AC=`printf "%s\n" "$WH_accent_1"` # 1 if dark, 7 if light
 
-			kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 50
+			kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 26
+            plasma-apply-desktoptheme spectrum-spite
 		else # Dark mode
-			GFILE="$HOME/.themes/Bigsur-gtk/gtk-3.0/gtk-dark.css"
-			OLD_GTK=$HOME/.themes/Bigsur-gtk/gtk-3.0/gtk-colors-dark.sh
+			GFILE="$HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/gtk-dark.css"
+			OLD_GTK=$HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/gtk-colors-dark.sh
 
 			rgb_Background_alt=$(hex_to_rgb "${WH_Background:1}" "1")
 			WH_Background_alt_2=$(rgb_to_hex "${NEW_GTKBG:1}" "light")
@@ -434,24 +449,22 @@ if [[ -f "/usr/bin/wal" ]]; then
 			FAC=`printf "%s\n" "$WH_accent_1"` # 1 if dark, 7 if light
 
 			kwriteconfig5 --file lightlyrc --group Common --key ShadowStrength 200
+            plasma-apply-desktoptheme spectrum-malice
 		fi
 
 		WH_bg_alt=$(rgb_to_hex "${rgb_Background_alt}" "normal")
 
 		qdbus org.kde.KWin /KWin reconfigure
 
-		plasma-apply-colorscheme Breeze > /dev/null 2>&1
-		sleep 1s
+		change_color
 
 		# Reload Gtk theme on the fly uncomment until I can modify the theme
 		dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Default'
-
-		change_color
-
-		dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Bigsur-gtk'
-
+		# Reload plasma color scheme
+		plasma-apply-colorscheme BreezeLight > /dev/null 2>&1
 		plasma-apply-colorscheme Lightly-Wal > /dev/null 2>&1
-		sleep 1s
+		
+		dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:ABCDE-white-refined-duck'
 
 		touch $HOME/.config/BetterDiscord/themes/Slate.theme.css
 

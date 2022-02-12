@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=ABCDE-white-wal
+Comment=default GTK theme for linux
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=ABCDE-white-wal
+MetacityTheme=ABCDE-white-refined
+IconTheme=ABCDE-white-refined
+CursorTheme=ABCDE-white-refined
+ButtonLayout=menu:minimize,maximize,close

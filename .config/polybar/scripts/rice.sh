@@ -2,7 +2,7 @@
 
 # Color files
 DFILE="$HOME/.config/BetterDiscord/themes/Slate.theme.css"						# Discord file
-FFILE="$HOME/.mozilla/firefox/t89kxbn9.default-release/chrome/userChrome.css"	# Firefox file
+FFILE="$HOME/.mozilla/firefox/fom8fblo.default-release/chrome/userChrome.css"	# Firefox file
 GFILE="$HOME/.themes/Bigsur-gtk/gtk-3.0/gtk.css"								# Gtk file - light mode
 KFILE="$HOME/.config/kdeglobals"												# Kglobal file
 LFILE="$HOME/.local/share/color-schemes/Lightly-Wal.colors"						# Lightly dark file
