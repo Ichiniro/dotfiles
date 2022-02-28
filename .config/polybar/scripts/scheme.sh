@@ -260,14 +260,16 @@ change_color() {
 	sed -i -e "s/old_gtk_secondary_background=.*/old_gtk_secondary_background='$WH_Background_alt_2'/g" $OLD_GTK
 	sed -i -e "s/old_gtk_third_background=.*/old_gtk_third_background='$WH_Background_alt_3'/g" $OLD_GTK
 	# Change SVG fill colors
-	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi.svg
-	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi1.svg
-	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi1X2.svg
-	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi2.svg
-	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi2X2.svg
-	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi3.svg
-	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi3X2.svg
-	sed -i -e "s/$OLD_GTKAC/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbiX2.svg
+	sed -i -e "s/$OLD_DECOL/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi.svg
+	sed -i -e "s/$OLD_DECOL/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi1.svg
+	sed -i -e "s/$OLD_DECOL/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi1X2.svg
+	sed -i -e "s/$OLD_DECOL/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi2.svg
+	sed -i -e "s/$OLD_DECOL/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi2X2.svg
+	sed -i -e "s/$OLD_DECOL/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi3.svg
+	sed -i -e "s/$OLD_DECOL/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi3X2.svg
+	sed -i -e "s/$OLD_DECOL/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbiX2.svg
+	
+	sed -i -e "s/old_decolors=.*/old_decolors='$WH_accent_1'/g" $DECOLORS
 
 	# Zathura colors
 	sed -i -e "s/set default-bg \"#.*/set default-bg \"$WH_Background\"/g" $ZFILE
@@ -310,34 +312,38 @@ if [[ -f "/usr/bin/wal" ]]; then
 	BACKEND="wal"
 	ACCENT=1
 	CUSTOMBG=""
-	while getopts a:i:b:c:f:l option
+	CUSTOMAC=""
+	while getopts n:a:i:b:c:f:l option
 		do
 		case "${option}"
 			in
-			a) ACCENT=${OPTARG};;
+			n) ACCENT=${OPTARG};;
 			i) SOURCE=${OPTARG};;
 			b) BACKEND="${OPTARG}";;
 			c) THEME="${OPTARG}";;
 			f) CUSTOMBG="${OPTARG}";;
+			a) CUSTOMAC="${OPTARG}";;
 			l) LIGHT="-l";;
 		esac
 	done
 
 	if [[ -n "$SOURCE" ]]; then
+		
+		plasma-apply-wallpaperimage $SOURCE
 
 		if [[ -n $CUSTOMBG ]]; then
-			pywal_get "$SOURCE" "$LIGHT" "$BACKEND"
+			#pywal_get "$SOURCE" "$LIGHT" "$BACKEND"
 			pywal_get_custom "$SOURCE" "$LIGHT" "$BACKEND" "$CUSTOMBG"
 		else
 			pywal_get "$SOURCE" "$LIGHT" "$BACKEND"
 		fi
 
-		plasma-apply-wallpaperimage $SOURCE
-
 		# Source the pywal color file
 		. "$HOME/.cache/wal/colors.sh"
 
 		# Source old gtk colors
+		. "$HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/decolors.sh"
+		DECOLORS=$HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/decolors.sh
 		if [[ "$LIGHT" == "-l" ]]; then # Light mode
 			. "$HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/gtk-colors.sh"
 		else # Dark mode
@@ -375,51 +381,58 @@ if [[ -f "/usr/bin/wal" ]]; then
 		OLD_GTKBG=`printf "%s\n" "$old_gtk_background"`
 		OLD_GTKBG_2=`printf "%s\n" "$old_gtk_secondary_background"`
 		OLD_GTKBG_3=`printf "%s\n" "$old_gtk_third_background"`
+		OLD_DECOL=`printf "%s\n" "$old_decolors"`
 
-		case "${ACCENT}"
-			in
-			2)
-				WH_accent_1=`printf "%s\n" "$color2"`
-				NH_accent_1=`printf "%s\n" "${color2:1}"`
-				RGB_accent_1=$(hex_to_rgb "${color2:1}")
-			;;
-			3)
-				WH_accent_1=`printf "%s\n" "$color3"`
-				NH_accent_1=`printf "%s\n" "${color3:1}"`
-				RGB_accent_1=$(hex_to_rgb "${color3:1}")
-			;;
-			4)
-				WH_accent_1=`printf "%s\n" "$color4"`
-				NH_accent_1=`printf "%s\n" "${color4:1}"`
-				RGB_accent_1=$(hex_to_rgb "${color4:1}")
-			;;
-			5)
-				WH_accent_1=`printf "%s\n" "$color5"`
-				NH_accent_1=`printf "%s\n" "${color5:1}"`
-				RGB_accent_1=$(hex_to_rgb "${color5:1}")
-			;;
-			6)
-				WH_accent_1=`printf "%s\n" "$color6"`
-				WH_accent_2=`printf "%s\n" "$color1"`
-				NH_accent_1=`printf "%s\n" "${color6:1}"`
-				NH_accent_2=`printf "%s\n" "${color1:1}"`
-				RGB_accent_1=$(hex_to_rgb "${color6:1}")
-				RGB_accent_2=$(hex_to_rgb "${color1:1}")
-			;;
-			7)
-				WH_accent_1=`printf "%s\n" "$color7"`
-				WH_accent_3=`printf "%s\n" "$color1"`
-				NH_accent_1=`printf "%s\n" "${color7:1}"`
-				NH_accent_3=`printf "%s\n" "${color1:1}"`
-				RGB_accent_1=$(hex_to_rgb "${color7:1}")
-				RGB_accent_3=$(hex_to_rgb "${color1:1}")
-			;;
-			8)
-				WH_accent_1=`printf "%s\n" "$color8"`
-				NH_accent_1=`printf "%s\n" "${color8:1}"`
-				RGB_accent_1=$(hex_to_rgb "${color8:1}")
-			;;
-		esac
+		if [[ -n $CUSTOMAC ]]; then
+			WH_accent_1=\#$CUSTOMAC
+			NH_accent_1=$CUSTOMAC
+			RGB_accent_1=$(hex_to_rgb "$CUSTOMAC")
+		else
+			case "${ACCENT}"
+				in
+				2)
+					WH_accent_1=`printf "%s\n" "$color2"`
+					NH_accent_1=`printf "%s\n" "${color2:1}"`
+					RGB_accent_1=$(hex_to_rgb "${color2:1}")
+				;;
+				3)
+					WH_accent_1=`printf "%s\n" "$color3"`
+					NH_accent_1=`printf "%s\n" "${color3:1}"`
+					RGB_accent_1=$(hex_to_rgb "${color3:1}")
+				;;
+				4)
+					WH_accent_1=`printf "%s\n" "$color4"`
+					NH_accent_1=`printf "%s\n" "${color4:1}"`
+					RGB_accent_1=$(hex_to_rgb "${color4:1}")
+				;;
+				5)
+					WH_accent_1=`printf "%s\n" "$color5"`
+					NH_accent_1=`printf "%s\n" "${color5:1}"`
+					RGB_accent_1=$(hex_to_rgb "${color5:1}")
+				;;
+				6)
+					WH_accent_1=`printf "%s\n" "$color6"`
+					WH_accent_2=`printf "%s\n" "$color1"`
+					NH_accent_1=`printf "%s\n" "${color6:1}"`
+					NH_accent_2=`printf "%s\n" "${color1:1}"`
+					RGB_accent_1=$(hex_to_rgb "${color6:1}")
+					RGB_accent_2=$(hex_to_rgb "${color1:1}")
+				;;
+				7)
+					WH_accent_1=`printf "%s\n" "$color7"`
+					WH_accent_3=`printf "%s\n" "$color1"`
+					NH_accent_1=`printf "%s\n" "${color7:1}"`
+					NH_accent_3=`printf "%s\n" "${color1:1}"`
+					RGB_accent_1=$(hex_to_rgb "${color7:1}")
+					RGB_accent_3=$(hex_to_rgb "${color1:1}")
+				;;
+				8)
+					WH_accent_1=`printf "%s\n" "$color8"`
+					NH_accent_1=`printf "%s\n" "${color8:1}"`
+					RGB_accent_1=$(hex_to_rgb "${color8:1}")
+				;;
+			esac
+		fi
 
 		if [[ "$LIGHT" == "-l" ]]; then # Light mode
 			OLD_GTK=$HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/gtk-colors.sh

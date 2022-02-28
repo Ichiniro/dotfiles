@@ -55,7 +55,7 @@
 
 :root {
   /*Primary Colors*/
-  --accent: 133,169,154;
+  --accent: 60,193,148;
   --link-colour: 48, 144, 255;
 
   /*Server List*/
@@ -68,33 +68,35 @@
   --avatar-radius: 10px;
   --server-radius: 15px;
 
-  --background: #fbf9f8;
-  --background-alt: #fbf9f8;
-  --background-light: #fbf9f8;
-  --background-dark: #fbf9f8;
-  --background-modifier-hover: #85a99a30;
-  --background-modifier-active: #85a99a30;
-  --toolbar-background: #fbf9f8;
+  --background: #fbfbfb;
+  --background-alt: #fbfbfb;
+  --background-light: #fbfbfb;
+  --background-dark: #fbfbfb;
+  --background-modifier-hover: #3CC19430;
+  --background-modifier-active: #3CC19430;
+  --toolbar-background: #fbfbfb;
   --toolbar-background-hover: 30;
 
-  --base-border: #fbf9f8;
-  --toolbar-border: #fbf9f8;
+  --base-border: #fbfbfb;
+  --toolbar-border: #fbfbfb;
   --toolbar-search-background: var(--background);
-  --toolbar-search-border: var(--text-normal);
+  --toolbar-search-border: var(--text-focus);
   /*--toolbar-text-focus:var(--accent);*/
   --toolbar-text-focus: var(--text-focus);
   --toolbar-text-normal: var(--text-focus);
   --toolbar-text-muted: var(--text-focus);
 
-  --text-normal: #3e3e3e;
-  --text-focus: #85a99a;
-  --text-muted: #b04b61;
+  --text-normal: #372D3F;
+  --text-focus: #3CC194;
+  --text-muted: #CDE0DA;
 
   /*--font-family-sans-serif: 'VictorMono Nerd Font';
   --font-family-monospace: 'VictorMono Nerd Font Mono';*/
   --font-family-sans-serif: 'Helvetica';
   --font-family-monospace: 'VictorMono Nerd Font Mono';
   --font-size: 13px;
+
+  --sidebar-width: 240px;
 }
 
 /*
@@ -127,3 +129,73 @@
     background: var(--text-focus) !important;
 }*/
 
+/*.content-1x5b-n {
+    border-radius: 16px !important;
+}*/
+
+
+/* Mic, sound, settings settings */
+#app-mount .panels-3wFtMD > .container-YkUktl .directionRow-2Iu2A9 {
+    /*background: var(--background-primary);*/
+    border-color: var(--background-secondary);
+    border-style: solid;
+    border-width: medium;
+}
+
+/* Mic, sound and settings parent container settings */
+/*#app-mount .panels-3wFtMD > .container-YkUktl {
+    border-top: 2px solid var(--base-border);
+    background: var(--background-secondary);
+    border-radius: var(--border-radius);
+    border-style: solid;
+    border-color: var(--background-secondary);
+    border-right: #000;
+}*/
+
+/* Message field settings */
+#app-mount .inner-NQg18Y {
+    /*background-color: var(--background-secondary);*/
+    border: medium solid var(--background-secondary);
+}
+
+/* Servers sidebar settings */
+#app-mount .guilds-2JjMmN .scrollerBase-_bVAAt {
+    /*background: var(--background-secondary);*/
+    /*border-radius: var(--border-radius);*/
+    padding-top: unset;
+    border-style: solid;
+    border-color: var(--background-secondary);
+    box-shadow: inset -10px 0 20px -9px #00000010;
+}
+
+/* Server Channels list settings */
+#app-mount .sidebar-1tnWFu [class*=scroller-] {
+    /*border-radius: var(--border-radius);
+    background-color: var(--background-secondary);*/
+    /*border-style: solid;
+    border-color: var(--background-secondary);
+    border-width: medium;*/
+    /*box-shadow: 1px 0px 20px 1px #00000010;*/
+}
+
+.container-1NXEtd {
+    background-color: var(--background-alt);
+}
+
+/* Set y position to the channel list */
+.guilds-2JjMmN {
+    width: var(--container);
+    top: 50px;
+}
+
+
+/* Add border and shadow to the topbars */
+#app-mount .container-ZMc96U {
+    border-bottom: var(--background-secondary);
+    border-style: solid;
+    border-top: unset;
+    border-left: unset;
+    border-right: unset;
+    border-color: var(--background-secondary);
+    box-shadow: 0 5px 20px 1px #00000010;
+}

@@ -39,6 +39,7 @@ case $chosen in
     $shutdown)
 		ans=$(confirm_exit &)
 		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+            ddcutil setvcp D6 04
 			systemctl poweroff
 		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
 			exit 0

@@ -1,4 +1,4 @@
-old_gtk_background='#f7fbfc'
-old_gtk_accent='#35ADD5'
-old_gtk_secondary_background='#fefdfe'
-old_gtk_third_background='#fefdfe'
+old_gtk_background='#fbfbfb'
+old_gtk_accent='#3CC194'
+old_gtk_secondary_background='#fbfbfb'
+old_gtk_third_background='#fbfbfb'
