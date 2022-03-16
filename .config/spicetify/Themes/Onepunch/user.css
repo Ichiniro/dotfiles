@@ -484,7 +484,7 @@ a.cRcbfCF3jsPg0TEpeWb9.RANP_Xq9O1O2VevAb3a8 {
 
 /* Add more vertical separations between playlists */
 li.GlueDropTarget.GlueDropTarget--playlists.GlueDropTarget--folders {
-    margin-bottom: 7px;
+    margin-bottom: 9px;
 }
 
 /* Add shadow to edit profile card */
@@ -574,4 +574,8 @@ li.GlueDropTarget.GlueDropTarget--playlists.GlueDropTarget--folders {
 :root {
     --scrollbar-vertical-size: 8px;
     --scrollbar-horizontal-size: 8px;
+}
+
+* {
+  font-family: Helvetica !important;
 }

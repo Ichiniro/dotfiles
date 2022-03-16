@@ -55,40 +55,42 @@
 
 :root {
   /*Primary Colors*/
-  --accent: 60,193,148;
+  --accent: 156,194,144;
   --link-colour: 48, 144, 255;
+  --sidebar-width: 240px;
 
   /*Server List*/
-  --server-icon-size: 40px;
+  --server-icon-size: 42px;
   --server-icon-spacing: 8px;
-  --server-container-padding: 10px;
+  --server-container-padding: 12px;
 
   /* My edits */
-  --border-radius: 10px;
-  --avatar-radius: 10px;
-  --server-radius: 15px;
+  --border-radius: 6px;
+  --avatar-radius: 9px;
+  --server-radius: 14px;
 
-  --background: #fbfbfb;
-  --background-alt: #fbfbfb;
-  --background-light: #fbfbfb;
-  --background-dark: #fbfbfb;
-  --background-modifier-hover: #3CC19430;
-  --background-modifier-active: #3CC19430;
-  --toolbar-background: #fbfbfb;
+  --background: #fdfdfb;
+  --background-alt: #fdfdfb;
+  --background-light: #fdfdfb;
+  --background-dark: #fdfdfb;
+  --background-sidebar: #F5F5F3;
+  --background-modifier-hover: #9CC29030;
+  --background-modifier-active: #9CC29030;
+  --toolbar-background: #fdfdfb;
   --toolbar-background-hover: 30;
+  
+  --text-normal: #374134;
+  --text-focus: #9CC290;
+  --text-muted: #C4D8D4;
 
-  --base-border: #fbfbfb;
-  --toolbar-border: #fbfbfb;
+  --base-border: #fdfdfb;
+  --toolbar-border: #fdfdfb;
   --toolbar-search-background: var(--background);
-  --toolbar-search-border: var(--text-focus);
+  --toolbar-search-border: var(--background-sidebar);
   /*--toolbar-text-focus:var(--accent);*/
-  --toolbar-text-focus: var(--text-focus);
   --toolbar-text-normal: var(--text-focus);
-  --toolbar-text-muted: var(--text-focus);
-
-  --text-normal: #372D3F;
-  --text-focus: #3CC194;
-  --text-muted: #CDE0DA;
+  --toolbar-text-focus: var(--toolbar-text-normal);
+  --toolbar-text-muted: var(--text-muted);
 
   /*--font-family-sans-serif: 'VictorMono Nerd Font';
   --font-family-monospace: 'VictorMono Nerd Font Mono';*/
@@ -96,7 +98,6 @@
   --font-family-monospace: 'VictorMono Nerd Font Mono';
   --font-size: 13px;
 
-  --sidebar-width: 240px;
 }
 
 /*
@@ -136,36 +137,37 @@
 
 /* Mic, sound, settings settings */
 #app-mount .panels-3wFtMD > .container-YkUktl .directionRow-2Iu2A9 {
-    /*background: var(--background-primary);*/
-    border-color: var(--background-secondary);
+    background: var(--background-sidebar);
+    border-color: var(--background-sidebar);
     border-style: solid;
-    border-width: medium;
+    border-width: 2px;
 }
 
 /* Mic, sound and settings parent container settings */
-/*#app-mount .panels-3wFtMD > .container-YkUktl {
-    border-top: 2px solid var(--base-border);
-    background: var(--background-secondary);
-    border-radius: var(--border-radius);
+#app-mount .panels-3wFtMD > .container-YkUktl {
+    /*border-top: 2px solid var(--base-border);*/
+    background: var(--background-sidebar);
+    border-right: unset;
+    /*border-radius: var(--border-radius);
     border-style: solid;
     border-color: var(--background-secondary);
-    border-right: #000;
-}*/
+    border-right: #000;*/
+}
 
 /* Message field settings */
 #app-mount .inner-NQg18Y {
     /*background-color: var(--background-secondary);*/
-    border: medium solid var(--background-secondary);
+    border: 2px solid var(--background-secondary);
 }
 
 /* Servers sidebar settings */
 #app-mount .guilds-2JjMmN .scrollerBase-_bVAAt {
-    /*background: var(--background-secondary);*/
+    background: var(--background-sidebar);
     /*border-radius: var(--border-radius);*/
     padding-top: unset;
-    border-style: solid;
+    /*border-style: solid;*/
     border-color: var(--background-secondary);
-    box-shadow: inset -10px 0 20px -9px #00000010;
+    /*box-shadow: inset -10px 0 20px -9px #00000010;*/
 }
 
 /* Server Channels list settings */
@@ -176,6 +178,9 @@
     border-color: var(--background-secondary);
     border-width: medium;*/
     /*box-shadow: 1px 0px 20px 1px #00000010;*/
+    background-color: var(--background-sidebar);
+    border-right: unset;
+    border-left: unset;
 }
 
 .container-1NXEtd {
@@ -190,7 +195,7 @@
 
 
 /* Add border and shadow to the topbars */
-#app-mount .container-ZMc96U {
+/*#app-mount .container-ZMc96U {
     border-bottom: var(--background-secondary);
     border-style: solid;
     border-top: unset;
@@ -198,4 +203,74 @@
     border-right: unset;
     border-color: var(--background-secondary);
     box-shadow: 0 5px 20px 1px #00000010;
+}*/
+
+/* Toolsbar settings: Server name f.e.*/
+#app-mount .sidebar-1tnWFu .header-3OsQeK {
+    background-color: var(--background-sidebar);
+    border-bottom: unset;
+    border-right: unset;
+}
+
+/* Add round corners to selected channerl */
+#app-mount .sidebar-1tnWFu .wrapper-NhbLHG.modeSelected-3DmyhH .content-1gYQeQ {
+    border-radius: 6px;
+}
+
+/* Add padding to channels list */
+#app-mount .sidebar-1tnWFu .content-1gYQeQ {
+    /* margin: 0; */
+    /* padding: 20px; */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Add shadow to pinned messages */
+#app-mount .messagesPopoutWrap-3zryHW {
+    box-shadow: 0 5px 20px 1px #00000020;
+}
+
+/* Remove tiny borders */
+#app-mount .guilds-2JjMmN {
+    border: unset;
+}
+#app-mount .panels-3wFtMD {
+    border-right: unset;
+}
+#app-mount .panels-3wFtMD > .container-YkUktl {
+    border-top: unset;
+}
+#app-mount .panels-3wFtMD::before {
+    border-top: unset;
+}
+
+/* Personal page */
+#app-mount .privateChannels-oVe7HL .searchBar-3TnChZ {
+    background: var(--background-sidebar);
+    border-bottom: unset;
+}
+
+/* Add round corrners to selected chat */
+.selected-3veCBZ {
+    height: 38px;
+    border-radius: 6px;
+}
+/* Add margins to selected chats */
+#app-mount .privateChannels-oVe7HL .content-2a4AW9 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Call controls background */
+#app-mount .panels-3wFtMD .container-1zzFcN {
+    background-color: var(--background-sidebar);
+}
+#app-mount .panels-3wFtMD .container-1zzFcN .horizontal-112GEH > .flex-2S1XBF:last-child {
+    background: var(--background-sidebar);
+    border: unset;
+}
+
+/* Add shadow to inboc popup */
+.container-2ebMPP {
+    box-shadow: 0 5px 20px 1px #00000020 !important;
 }
