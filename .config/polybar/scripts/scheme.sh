@@ -3,8 +3,6 @@
 # Color scheme
 SCHEME="$HOME/.config/polybar/color-scheme/colors.json"
 
-# Firefox rute always fucking changes
-
 # Color files
 DFILE="$HOME/.config/BetterDiscord/themes/Slate.theme.css"						# Discord file
 FFILE="$HOME/.mozilla/firefox/fom8fblo.default-release/chrome/userChrome.css"	# Firefox file
@@ -17,20 +15,6 @@ SFILE="$HOME/.config/spicetify/Themes/Onepunch/color.ini"						# Spotify file
 VFILE="$HOME/.config/Code - OSS/User/settings.json"								# VS Code file
 ZFILE="$HOME/.config/zathura/zathurarc"											# Zathura file
 ZSHFILE="$HOME/.zshrc"															# Zshrc file
-
-function set_wallpaper {
-	dbus-send --session --dest=org.kde.plasmashell --type=method_call /PlasmaShell org.kde.PlasmaShell.evaluateScript 'string:
-
-	var Desktops = desktops();
-	for (i=0;i<Desktops.length;i++) {
-			d = Desktops[i];
-			d.wallpaperPlugin = "org.kde.image";
-			d.currentConfigGroup = Array("Wallpaper",
-										"org.kde.image",
-										"General");
-			d.writeConfig("Image", "file:'$1'");
-	}'
-}
 
 # Convert HEX color to rgb
 # hex_to_rgb: 1 param = converts HEX to rgb normally
@@ -49,9 +33,9 @@ function hex_to_rgb {
 	if [[ "$2" ]]; then
 		if [[ "$3" ]]; then # Light mode
 			#echo "Iluminar 3"
-			r=$((r - 12))
-			g=$((g - 12))
-			b=$((b - 12))
+			r=$((r - 8))
+			g=$((g - 8))
+			b=$((b - 8))
 			if [[ $r -lt 0 ]]; then
 				r=0
 			fi
@@ -127,11 +111,10 @@ function rgb_to_hex {
 
 # Get colors
 pywal_get() {
-	wal -i "$1" -q -t -n -e --backend "$3"
-	wal_steam -w > /dev/null 2>&1
-
 	if [[ "$2" ]]; then
 		wal -i "$1" "$2" -q -t -n -e --backend $3 #--backend colorz
+	else
+		wal -i "$1" -q -t -n -e --backend $3 #--backend colorz
 	fi
 }
 
@@ -141,6 +124,12 @@ pywal_get_custom() {
 	if [[ "$2" ]]; then
 		wal -i "$1" "$2" -t -n -e --backend $3 -b "$4"
 	fi
+}
+
+pywal_steam() {
+	#wal -i "$1" -q -t -n -e --backend "$2" -b 202022
+	wal --theme $HOME/.config/polybar/color-scheme/colors.json -e -q -b 202022
+	wal_steam -w > /dev/null 2>&1
 }
 
 # Change colors
@@ -178,23 +167,23 @@ change_color() {
 	sed -i -e "53 s/player =.*/player = $NH_Background/g" $SFILE
 	sed -i -e "54 s/sec-player =.*/sec-player = ${WH_bg_alt:1}/g" $SFILE
 	sed -i -e "55 s/card =.*/card = ${WH_bg_alt:1}/g" $SFILE
-	sed -i -e "56 s/sec-card =.*/sec-card = $NH_accent_3/g" $SFILE
+	sed -i -e "56 s/sec-card =.*/sec-card = ${WH_bg_alt:1}/g" $SFILE
 	sed -i -e "57 s/shadow =.*/shadow = $NH_Background/g" $SFILE
 	#sed -i -e "58 s/selected-row =.*/selected-row = $NH_Background/g" $SFILE
 	sed -i -e "59 s/button =.*/button = $NH_accent_1/g" $SFILE
 	sed -i -e "60 s/button-active =.*/button-active = $NH_accent_1/g" $SFILE
 	sed -i -e "61 s/button-disabled =.*/button-disabled = ${WH_bg_alt:1}/g" $SFILE
-	sed -i -e "62 s/tab-active =.*/tab-active = $NH_accent_3/g" $SFILE
-	sed -i -e "63 s/notification =.*/notification = $NH_accent_3/g" $SFILE
+	sed -i -e "62 s/tab-active =.*/tab-active = ${WH_bg_alt:1}/g" $SFILE
+	sed -i -e "63 s/notification =.*/notification = ${WH_bg_alt:1}/g" $SFILE
 	#sed -i -e "64 s/notification-error =.*/notification-error = $NH_accent_3/g" $SFILE
 	sed -i -e "65 s/misc =.*/misc = $NH_accent_1/g" $SFILE
 
 	# Firefox
-	sed -i -e "s/--light-color:.*/--light-color: $rgb_Foreground;/g" $FFILE
-	sed -i -e "s/--dark-color:.*/--dark-color: $rgb_Background;/g" $FFILE
-	sed -i -e "s/--accent-color:.*/--accent-color: $rgb_Background_alt;/g" $FFILE
-	sed -i -e "s/--secondary-accent-color:.*/--secondary-accent-color: $rgb_Foreground;/g" $FFILE
-	sed -i -e "s/--third-accent-color:.*/--third-accent-color: $rgb_Foreground;/g" $FFILE
+	#sed -i -e "s/--light-color:.*/--light-color: $rgb_Foreground;/g" $FFILE
+	#sed -i -e "s/--dark-color:.*/--dark-color: $rgb_Background;/g" $FFILE
+	#sed -i -e "s/--accent-color:.*/--accent-color: $rgb_Background_alt;/g" $FFILE
+	#sed -i -e "s/--secondary-accent-color:.*/--secondary-accent-color: $rgb_Foreground;/g" $FFILE
+	#sed -i -e "s/--third-accent-color:.*/--third-accent-color: $rgb_Foreground;/g" $FFILE
 
 	# Discord
 	sed -i -e "s/--accent:.*/--accent: $RGB_accent_1;/g" $DFILE
@@ -202,6 +191,7 @@ change_color() {
 	sed -i -e "s/--background-alt:.*/--background-alt: $WH_Background;/g" $DFILE
 	sed -i -e "s/--background-light:.*/--background-light: $WH_Background;/g" $DFILE
 	sed -i -e "s/--background-dark:.*/--background-dark: $WH_Background;/g" $DFILE
+	sed -i -e "s/--background-sidebar:.*/--background-sidebar: $WH_bg_alt;/g" $DFILE
 	sed -i -e "s/--background-modifier-hover:.*/--background-modifier-hover: ${WH_accent_1}30;/g" $DFILE
 	sed -i -e "s/--background-modifier-active:.*/--background-modifier-active: ${WH_accent_1}30;/g" $DFILE
 	sed -i -e "s/--toolbar-background:.*/--toolbar-background: $WH_Background;/g" $DFILE
@@ -268,7 +258,7 @@ change_color() {
 	sed -i -e "s/$OLD_DECOL/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi3.svg
 	sed -i -e "s/$OLD_DECOL/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbi3X2.svg
 	sed -i -e "s/$OLD_DECOL/$WH_accent_1/g" $HOME/.themes/ABCDE-white-refined-duck/gtk-3.0/assets/guanbiX2.svg
-	
+
 	sed -i -e "s/old_decolors=.*/old_decolors='$WH_accent_1'/g" $DECOLORS
 
 	# Zathura colors
@@ -305,14 +295,20 @@ change_color() {
 
 	#VS Code?
 	sed -i -e "s/\"variables\":.*/\"variables\": \"$WH_accent_1\",/g" "$VFILE"
+	sed -i -e "s/\"statusBar.background\":.*/\"statusBar.background\": \"$WH_accent_1\",/g" "$VFILE"
+	sed -i -e "s/\"statusBar.foreground\":.*/\"statusBar.foreground\": \"$WH_Background\",/g" "$VFILE"
+	sed -i -e "s/\"statusBar.noFolderBackground\":.*/\"statusBar.noFolderBackground\": \"$WH_accent_1\",/g" "$VFILE"
+	sed -i -e "s/\"statusBar.noFolderForeground\":.*/\"statusBar.noFolderForeground\": \"$WH_Background\",/g" "$VFILE"
 }
 
 # Main
 if [[ -f "/usr/bin/wal" ]]; then
+
 	BACKEND="wal"
 	ACCENT=1
 	CUSTOMBG=""
 	CUSTOMAC=""
+
 	while getopts n:a:i:b:c:f:l option
 		do
 		case "${option}"
@@ -328,7 +324,7 @@ if [[ -f "/usr/bin/wal" ]]; then
 	done
 
 	if [[ -n "$SOURCE" ]]; then
-		
+
 		plasma-apply-wallpaperimage $SOURCE
 
 		if [[ -n $CUSTOMBG ]]; then
@@ -476,16 +472,18 @@ if [[ -f "/usr/bin/wal" ]]; then
 		# Reload plasma color scheme
 		plasma-apply-colorscheme BreezeLight > /dev/null 2>&1
 		plasma-apply-colorscheme Lightly-Wal > /dev/null 2>&1
-		
+
 		dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:ABCDE-white-refined-duck'
 
 		touch $HOME/.config/BetterDiscord/themes/Slate.theme.css
 
+		pywal_steam # Generate steam exclusive theme
+		# execute wal once again to regenerate legible cs for vs code and konsole
 		wal --theme $HOME/.config/polybar/color-scheme/colors.json -e -q
 
-		echo -e "[!] You may need to restart some programs to see the changes"
-
 		sh $HOME/.config/polybar/launch.sh
+
+		echo -e "[!] You may need to restart some programs to see the changes"
 
 	else
 		echo -e "[!] Please enter the path to wallpaper. \n"

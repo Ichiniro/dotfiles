@@ -1,0 +1,28 @@
+{
+    "workbench.colorTheme": "Wal",
+    "workbench.iconTheme": "nonicons",
+    "window.menuBarVisibility": "toggle",
+    "editor.fontFamily": "'Monoflow','VictorMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.cursorSmoothCaretAnimation": true,
+    "workbench.list.smoothScrolling": true,
+    "editor.smoothScrolling": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.tokenColorCustomizations": {
+        "[Wal]": {
+            "variables": "#aa3c53",
+        }
+    },
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#aa3c53",
+        "statusBar.foreground": "#fcfafa",
+        "statusBar.noFolderBackground": "#aa3c53",
+        "statusBar.noFolderForeground": "#fcfafa",
+    },
+    "editor.fontWeight": "bold",
+    "editor.fontLigatures": true,
+    "editor.minimap.scale": 1,
+    "editor.minimap.renderCharacters": false,
+    "editor.roundedSelection": true,
+    "editor.scrollbar.horizontal": "hidden",
+}

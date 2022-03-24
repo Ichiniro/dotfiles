@@ -1,5 +1,5 @@
-old_gtk_background='#3b3b3d'
-old_gtk_accent='#74C692'
+old_gtk_background='#272020'
+old_gtk_accent='#aa3b52'
 old_gtk_secondary_accent='#ba94bf'
 old_gtk_secondary_background='#111111'
 old_gtk_third_background='#000000'

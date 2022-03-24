@@ -577,5 +577,6 @@ li.GlueDropTarget.GlueDropTarget--playlists.GlueDropTarget--folders {
 }
 
 * {
-  font-family: Helvetica !important;
+  /*font-family: Helvetica !important;*/
+  font-family: 'SF Pro Text' !important;
 }
