@@ -232,13 +232,13 @@ col() {
 
 print() {
 	[ "$2" ] && printf '\033[9%sm%6s\033[0m%b%s\n' \
-		"${accent:-4}" "$1" "${separator:- ~ }" "$2"
+		"${accent:-2}" "$1" "${separator:- :: }" "$2"
 }
 
 # default value
 #: "${info:=n user os sh wm up gtk cpu mem host kern pkgs term col n}"
 # my values
-: "${info:=n os sh wm up cpu mem kern pkgs col n}"
+: "${info:=n kern wm pkgs col n}"
 
 for i in $info; do
 	case $i in

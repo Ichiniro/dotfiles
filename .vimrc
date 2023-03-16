@@ -32,7 +32,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'fehawen/cs.vim'
 Plug 'fehawen/sl.vim'
 Plug 'ap/vim-css-color'
-Plug 'ycm-core/YouCompleteMe'
+"Plug 'ycm-core/YouCompleteMe'
 Plug 'wakatime/vim-wakatime'
 Plug 'raimondi/delimitmate'
 Plug 'yuttie/comfortable-motion.vim'
@@ -295,5 +295,5 @@ let g:airline#extensions#ycm#enabled = 1
 " monochrome
 " hybrid
 " biogoo
-let g:airline_theme='solarized'
+let g:airline_theme='monochrome'
 

@@ -55,46 +55,46 @@
 
 :root {
   /*Primary Colors*/
-  --accent: 156,194,144;
+  --accent: 227,135,122;
   --link-colour: 48, 144, 255;
-  --sidebar-width: 240px;
+  --sidebar-width: 250px;
 
   /*Server List*/
   --server-icon-size: 42px;
-  --server-icon-spacing: 8px;
-  --server-container-padding: 12px;
+  --server-icon-spacing: 10px;
+  --server-container-padding: 15px;
 
   /* My edits */
   --border-radius: 6px;
   --avatar-radius: 9px;
   --server-radius: 14px;
 
-  --background: #fdfdfb;
-  --background-alt: #fdfdfb;
-  --background-light: #fdfdfb;
-  --background-dark: #fdfdfb;
-  --background-sidebar: #F5F5F3;
-  --background-modifier-hover: #9CC29030;
-  --background-modifier-active: #9CC29030;
-  --toolbar-background: #fdfdfb;
+  --background: #fffdf6;
+  --background-alt: #fffdf6;
+  --background-light: #fffdf6;
+  --background-dark: #fffdf6;
+  --background-sidebar: #F7F5EE;
+  --background-modifier-hover: #e3877a30;
+  --background-modifier-active: #e3877a30;
+  --toolbar-background: #fffdf6;
   --toolbar-background-hover: 30;
-  
-  --text-normal: #374134;
-  --text-focus: #9CC290;
-  --text-muted: #C4D8D4;
 
-  --base-border: #fdfdfb;
-  --toolbar-border: #fdfdfb;
+  --text-normal: #715657;
+  --text-focus: #e3877a;
+  --text-muted: rgba(var(--accent), 0.5);
+
+  --base-border: #fffdf6;
+  --toolbar-border: #fffdf6;
   --toolbar-search-background: var(--background);
   --toolbar-search-border: var(--background-sidebar);
   /*--toolbar-text-focus:var(--accent);*/
   --toolbar-text-normal: var(--text-focus);
-  --toolbar-text-focus: var(--toolbar-text-normal);
-  --toolbar-text-muted: var(--text-muted);
+  --toolbar-text-focus: var(--text-focus);
+  --toolbar-text-muted: rgba(var(--accent), 0.5);
 
   /*--font-family-sans-serif: 'VictorMono Nerd Font';
   --font-family-monospace: 'VictorMono Nerd Font Mono';*/
-  --font-family-sans-serif: 'Helvetica';
+  --font-family-sans-serif: 'SF Pro';
   --font-family-monospace: 'VictorMono Nerd Font Mono';
   --font-size: 13px;
 

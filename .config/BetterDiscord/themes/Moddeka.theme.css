@@ -4,28 +4,7 @@
  * @author whoknows
 */
 
-/*        _____                    _____            _____                _____                    _____
-         /\    \                  /\    \          /\    \              /\    \                  /\    \
-        /::\    \                /::\____\        /::\    \            /::\    \                /::\    \
-       /::::\    \              /:::/    /       /::::\    \           \:::\    \              /::::\    \
-      /::::::\    \            /:::/    /       /::::::\    \           \:::\    \            /::::::\    \
-     /:::/\:::\    \          /:::/    /       /:::/\:::\    \           \:::\    \          /:::/\:::\    \
-    /:::/__\:::\    \        /:::/    /       /:::/__\:::\    \           \:::\    \        /:::/__\:::\    \
-    \:::\   \:::\    \      /:::/    /       /::::\   \:::\    \          /::::\    \      /::::\   \:::\    \
-  ___\:::\   \:::\    \    /:::/    /       /::::::\   \:::\    \        /::::::\    \    /::::::\   \:::\    \
- /\   \:::\   \:::\    \  /:::/    /       /:::/\:::\   \:::\    \      /:::/\:::\    \  /:::/\:::\   \:::\    \
-/::\   \:::\   \:::\____\/:::/____/       /:::/  \:::\   \:::\____\    /:::/  \:::\____\/:::/__\:::\   \:::\____\
-\:::\   \:::\   \::/    /\:::\    \       \::/    \:::\  /:::/    /   /:::/    \::/    /\:::\   \:::\   \::/    /
- \:::\   \:::\   \/____/  \:::\    \       \/____/ \:::\/:::/    /   /:::/    / \/____/  \:::\   \:::\   \/____/
-  \:::\   \:::\    \       \:::\    \               \::::::/    /   /:::/    /            \:::\   \:::\    \
-   \:::\   \:::\____\       \:::\    \               \::::/    /   /:::/    /              \:::\   \:::\____\
-    \:::\  /:::/    /        \:::\    \              /:::/    /    \::/    /                \:::\   \::/    /
-     \:::\/:::/    /          \:::\    \            /:::/    /      \/____/                  \:::\   \/____/
-      \::::::/    /            \:::\    \          /:::/    /                                 \:::\    \
-       \::::/    /              \:::\____\        /:::/    /                                   \:::\____\
-        \::/    /                \::/    /        \::/    /                                     \::/    /
-         \/____/                  \/____/          \/____/                                       \/____/
-
+/*
 ====================================================================================
  Please view the full documentation at https://github.com/DiscordStyles/Slate/wiki
 ====================================================================================
@@ -48,39 +27,39 @@
 
 :root {
     /*Primary Colors*/
-    --accent: 183,76,94;
+    --accent: 214,168,97;
     --link-colour: 48, 144, 255;
-    --sidebar-width: 260px;
+    --sidebar-width: 275px;
 
     /*Server List*/
     --server-icon-size: 35px;
-    --server-icon-spacing: 11px;
-    --server-container-padding: 10px;
+    --server-icon-spacing: 10px;
+    --server-container-padding: 15px;
 
     /* My edits */
     --border-radius: 6px;
     --avatar-radius: 100%;
     --server-radius: 12px;
 
-    --background: #fbf7f7;
-    --background-alt: #fbf7f7;
-    --background-light: #fbf7f7;
-    --background-dark: #fbf7f7;
-    --background-sidebar: #F3EFEF;
-    --background-modifier-hover: #b74c5e30;
-    --background-modifier-active: #b74c5e30;
-    --toolbar-background: #fbf7f7;
+    --background: #1b1915;
+    --background-alt: #1b1915;
+    --background-light: #1b1915;
+    --background-dark: #1b1915;
+    --background-sidebar: #2C2A26;
+    --background-modifier-hover: #D6A86130;
+    --background-modifier-active: #D6A86130;
+    --toolbar-background: #1b1915;
     --toolbar-background-hover: 30;
 
     --slate-bg: var(--background-alt);
-    --sidebar-rgb: 243,239,239;
+    --sidebar-rgb: 44,42,38;
 
-    --text-normal: #505053;
-    --text-focus: #b74c5e;
+    --text-normal: #e4e4e4;
+    --text-focus: #D6A861;
     --text-muted: rgba(var(--accent), 0.5);
 
-    --base-border: #fbf7f7;
-    --toolbar-border: #fbf7f7;
+    --base-border: #1b1915;
+    --toolbar-border: #1b1915;
     --toolbar-search-background: var(--background-sidebar);
     --toolbar-search-border: var(--background-sidebar);
     /*--toolbar-text-focus:var(--accent);*/
@@ -89,7 +68,7 @@
     --toolbar-text-muted: rgba(var(--accent), 0.5);
 
     /*--font-family-sans-serif: 'VictorMono Nerd Font';
-  --font-family-monospace: 'VictorMono Nerd Font Mono';*/
+    --font-family-monospace: 'VictorMono Nerd Font Mono';*/
     --font-family-sans-serif: 'Helvetica';
     --font-family-monospace: 'Monoflow';
     --font-size: 13px;
@@ -141,6 +120,12 @@
     border: 2px solid var(--background-secondary);
 }
 
+
+#app-mount .guilds-2JjMmN .scrollerBase-1Pkza4 {
+    /*fix gap on top server list*/
+    padding-top: unset !important;
+}
+
 /* Servers sidebar settings */
 #app-mount .guilds-2JjMmN .scrollerBase-_bVAAt {
     background: var(--background-sidebar);
@@ -150,6 +135,7 @@
 
 #app-mount .sidebar-1tnWFu {
     margin-right: 5px;
+    margin-left: 3px;
 }
 
 #app-mount .sidebar-1tnWFu .content-1gYQeQ {
@@ -178,6 +164,10 @@
     background-color: var(--background-alt);
 }
 
+#app-mount .sidebar-1tnWFu .unread-36eUEm {
+    margin-left: 10px;
+}
+
 /* Set y position to the channel list */
 .guilds-2JjMmN {
     width: var(--container);
@@ -195,6 +185,12 @@
 /* Add round corners to selected channel */
 #app-mount .sidebar-1tnWFu .wrapper-NhbLHG.modeSelected-3DmyhH .content-1gYQeQ {
     border-radius: var(--border-radius);
+}
+
+/* text color for active channel */
+#app-mount .sidebar-1tnWFu .wrapper-NhbLHG.modeSelected-3DmyhH .content-1gYQeQ .name-28HaxV,
+#app-mount .sidebar-1tnWFu .wrapper-NhbLHG.modeSelected-3DmyhH .content-1gYQeQ svg {
+    color: var(--slate-bg);
 }
 
 /* Add padding to channels list */
@@ -276,7 +272,7 @@
 /* Fix members icons not centered in the list */
 #app-mount .member-2gU6Ar .avatar-6qzftW {
     margin-right: var(--spacing-double);
-    height: calc(var(--avatar-size)*1.2) !important;
+    height: calc(var(--avatar-size)*1.4) !important;
     place-self: baseline;
     width: var(--avatar-size) !important;
 }
@@ -299,8 +295,30 @@
 
 /* Round corners of chat*/
 #app-mount .messagesWrapper-RpOMA3 {
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.chatContent-3KubbW {
+    border-radius: var(--border-radius);
+}
+
+/*Recolor thread lines*/
+.spine-2vt3pM {
+    border-bottom: 2px solid var(--background-modifier-hover);
+    border-left: 2px solid var(--background-modifier-hover);
+}
+
+/*Round corners for selected DM*/
+#app-mount .privateChannels-oVe7HL .channel-1Shao0 {
+    border-radius: var(--border-radius);
+}
+
+/*Activity label in DM chat list*/
+#app-mount .privateChannels-oVe7HL .channel-1Shao0 .activityText-ev7Z1T,
+#app-mount .privateChannels-oVe7HL .channel-1Shao0 .subText-3Sk0zy {
+    font-size: var(--font-size-sm);
+    color: var(--scrollbar-background);
 }
 
 /* Round corner at the bootom of chats */
@@ -341,6 +359,7 @@
 #app-mount .membersWrap-3NUR2t {
     border-radius: var(--border-radius);
     margin-right: 5px;
+    margin-left: 0px;
 }
 
 .content-1jQy2l {
@@ -385,6 +404,14 @@
 #app-mount .userPopout-2j1gM4 .buttonsWrapper-2ARRp1 {
     gap: 0px;
     margin-right: 12px;
+}
+
+#app-mount .lookFilled-yCfaCM:not(.colorGrey-2DXtkV),
+#app-mount .bd-modal-wrapper .footer button,
+#app-mount .primaryButton-361sHl {
+    background-color: var(--background-sidebar) !important;
+    color: var(--text-muted) !important;
+    margin-right: 5px;
 }
 
 /* Threads */
@@ -474,99 +501,72 @@
 #app-mount .privateChannels-oVe7HL .searchBar-3TnChZ {
     background: unset;
     border-bottom: unset;
+    left: auto !important;
+    padding-right: 70px;
 }
 
-/* User's pop up */
-.userProfileInnerNonPremium-1XjSjn {
-    background: var(--background-sidebar);
+/*=== User's pop up ===*/
+#app-mount .overlayBackground-1KgwVi {
+    margin: 0px 10px 15px;
+}
+.avatarHint-2g3Mcd {
+    /*round hint in profile pic hover*/
+    border-radius: 100%;
 }
 
-.overlayBackground-1KgwVi {
-    background-color: var(--slate-bg);
+.userPopoutOuter-3AVBmJ .wrapper-1VLyxH foreignObject {
+    /*round profile pic*/
+    overflow: hidden;
+    border-radius: 100%;
 }
 
-.wrapper-1VLyxH rect {
-    x: 65%;
-    y: 65%;
+#app-mount .menu-2TXYjN, #app-mount .submenu-3ycVEH {
+    box-shadow: unset;
 }
 
-#app-mount .input-1nrc5P,
-#app-mount .input-2g-os5,
-#app-mount .input-2lpFVz {
-    background: unset;
-    border: unset;
+#app-mount .section-3FmfOT {
+    /*vertical spacing*/
+    padding: 12px 0px 0px 0px;
 }
 
-#app-mount .styleFlexible-x0_sIC .item-1OdjEX,
-#app-mount .submenu-1apzyU .item-1OdjEX {
+#app-mount .userPopoutInner-1hXSeY {
+    /*pop up background*/
     background: var(--slate-bg);
 }
 
-#app-mount .styleFlexible-x0_sIC .scroller-1bVxF5,
-#app-mount .submenu-1apzyU .scroller-1bVxF5 {
+#app-mount .section-3FmfOT>.title-1r9MQ6 {
+    /*pop up titles background*/
     background: var(--slate-bg);
+    border-bottom: unset;
+    border-top: 1px solid var(--base-border);
 }
 
-#app-mount .styleFlexible-x0_sIC,
-#app-mount .submenu-1apzyU {
-    border: unset;
+
+#app-mount .section--1D3ev::before {
+    content: "Send Message";
+    background: var(--slate-bg);
+    border-bottom: unset;
+    border-top: 1px solid var(--base-border);
+}
+
+.avatarWrapper-3y0KZ1 {
+    z-index: auto;
+}
+
+#account>div {
+    /*actions group*/
+    background-color: var(--slate-bg) !important;
 }
 
 /* Profile page */
-/*#app-mount .root-8LYsGj .topSection-13QKHs>header {
-    position: unset;
-    display: unset;
-}
 
-#app-mount .root-8LYsGj .topSection-13QKHs {
-    width: -webkit-fill-available;
+.userProfileInnerThemedNonPremium-1gT-zY {
+    background: var(--slate-bg);
 }
-#app-mount .root-8LYsGj .topSection-13QKHs .wrapper-1VLyxH {
-    position: relative;
-    top: -70px;
-    left: 29px;
-}
-#app-mount .root-8LYsGj .body-1Ukv50 {
-    width: calc(var(--right-side) - 15px);
-    overflow: clip;
-    position: absolute;
-    top: 120px;
-}
-.focusLock-2tveLW, .root-g14mjS {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: var(--settings-min-width);
-    max-width: var(--settings-max-width);
-    padding-top: 50px;
-    top: 0;
-    overflow: hidden;
-    position: relative;
-    max-height: var(--settings-max-height);
-}
-#app-mount .root-8LYsGj .headerTop-1PNKck {
-    padding: 0;
-    flex-direction: column;
-    align-items: flex-start;
-    position: absolute;
-    max-width: 25%;
-    left: 5px;
-    top: 80px;
-}*/
 
 /* Members options */
 #app-mount .slider-1NC-Gf .bar-1Bhnl9 {
     background: var(--background-sidebar);
-}
-
-/* My profile at bottom */
-#app-mount .panels-3wFtMD>.container-YkUktl .avatarWrapper-1B9FTW .wrapper-1VLyxH {
-    width: 32px !important;
-    height: 32px !important;
 }
 
 /* Remove custom profiles pics for people without one */
@@ -625,39 +625,57 @@
 #app-mount .emojiPicker-6YCk8a {
     background: var(--background-sidebar);
 }
+
 #app-mount #emoji-picker-tab-panel .listItems-6eZzQ1 {
     background: var(--background-sidebar);
 }
+
 #app-mount .wrapper-1NNaWG {
     border-bottom: unset;
     border-top: unset;
     background: var(--slate-bg);
     border-radius: var(--border-radius);
 }
+
 #app-mount .inspector-2A2Chb,
 #app-mount .inspector-DFKXwB {
     background: var(--background-sidebar);
     border: unset;
 }
+
 .wrapper-1NNaWG:after {
     background-color: transparent;
 }
-#app-mount .input-2FSSDe, #app-mount .input-2m5SfJ, #app-mount .input-2FSSDe {
+
+#app-mount .input-2FSSDe,
+#app-mount .input-2m5SfJ,
+#app-mount .input-2FSSDe {
     background-color: var(--slate-bg);
     border: unset;
 }
-#app-mount .header-JHwfVI, #app-mount .header-11eigE, #app-mount .header-uVCAlo, #app-mount .header-2TLOnc {
+
+#app-mount .header-JHwfVI,
+#app-mount .header-11eigE,
+#app-mount .header-uVCAlo,
+#app-mount .header-2TLOnc {
     padding-left: 180px;
 }
-#app-mount .header-JHwfVI, #app-mount .header-11eigE, #app-mount .header-uVCAlo, #app-mount .header-2TLOnc {
+
+#app-mount .header-JHwfVI,
+#app-mount .header-11eigE,
+#app-mount .header-uVCAlo,
+#app-mount .header-2TLOnc {
     background: var(--background-sidebar);
 }
+
 #app-mount #gif-picker-tab-panel .content-A8TzKf {
     background: var(--background-sidebar);
 }
+
 .wrapper-i1awk3 {
     background: var(--background-sidebar);
 }
+
 #app-mount .categoryList-2GgCrD {
     background: var(--background-sidebar);
 }
@@ -667,42 +685,52 @@
     color: var(--text-normal);
     font-weight: bold;
 }
+
 /* Fix color for server name */
 .name-3Uvkvr {
     color: var(--text-normal) !important;
     font-weight: bolder;
     font-size: 16px !important;
 }
+
 #app-mount .container-ZMc96U .children-3xh0VB .iconWrapper-2awDjA .icon-2xnN2Y {
     color: var(--text-normal);
 }
+
 #app-mount .container-ZMc96U .toolbar-3_r2xA .icon-2xnN2Y {
     color: var(--text-normal);
     opacity: 0.75;
     cursor: pointer;
 }
+
 #app-mount .container-ZMc96U .toolbar-3_r2xA .selected-29KTGM .icon-2xnN2Y {
     color: var(--text-normal);
     opacity: 0.75;
 }
+
 #app-mount .container-ZMc96U .searchBar-jGtisZ .iconContainer-1RqWJj .icon-18rqoe {
     color: var(--text-normal);
     transition: none;
     /* opacity: 0.75; */
 }
+
 #app-mount .container-ZMc96U .searchBar-jGtisZ .public-DraftEditorPlaceholder-root {
     color: var(--text-normal);
     opacity: 0.75;
 }
+
 #app-mount .sidebar-1tnWFu .header-3OsQeK .button-2BMPJJ {
     opacity: 0;
 }
+
 #app-mount .sidebar-1tnWFu .header-3OsQeK .name-3Uvkvr:before {
     content: unset;
 }
+
 #app-mount .container-ZMc96U .children-3xh0VB .title-17SveM:before {
     content: unset;
 }
+
 #app-mount .container-ZMc96U .children-3xh0VB .title-17SveM {
     font-size: 16px;
     font-weight: bold;
@@ -710,109 +738,151 @@
 }
 
 /* Fix color of memebers on sidebar */
-.member-48YF_l, .members-3WRCEx {
+.member-48YF_l,
+.members-3WRCEx {
     background-color: unset;
 }
 
 /* Trasnsparency attemp */
 body {
-    background: rgba(var(--sidebar-rgb), 0.8) !important;
+    background: rgba(var(--sidebar-rgb), 0.9) !important;
 }
+
 #app-mount {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 .appDevToolsWrapper-1QxdQf {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 .notDevTools-1zkgfK {
-    background: transparent  !important;
+    background: transparent !important;
 }
-.app-3xd6d0, .mobileApp-3_TCAV {
-    background: transparent  !important;
+
+.app-3xd6d0,
+.mobileApp-3_TCAV {
+    background: transparent !important;
 }
-.app-2CXKsg, .bg-1QIAus {
-    background: transparent  !important;
+
+.app-2CXKsg,
+.bg-1QIAus {
+    background: transparent !important;
 }
-.app-2CXKsg, .bg-1QIAus {
-    background: transparent  !important;
+
+.app-2CXKsg,
+.bg-1QIAus {
+    background: transparent !important;
 }
+
 #app-mount .layers-OrUESM {
-    background-color: transparent  !important;
+    background-color: transparent !important;
 }
+
 #app-mount .layer-86YKbF.baseLayer-W6S8cY {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 .container-1eFtFS {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 #app-mount .guilds-2JjMmN {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 .tree-3agP2X {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 #app-mount .guilds-2JjMmN .scrollerBase-_bVAAt {
-    background: transparent  !important;
+    background: transparent !important;
     border-color: transparent;
 }
+
 #app-mount .base-2jDfDU {
-    background-color: transparent  !important;
+    background-color: transparent !important;
 }
+
 .content-1SgpWY {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 #app-mount .sidebar-1tnWFu {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 .container-1NXEtd {
-    background-color: transparent  !important;
+    background-color: transparent !important;
 }
+
 #app-mount .sidebar-1tnWFu .container-1-ERn5 {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 #app-mount .sidebar-1tnWFu .header-3OsQeK {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 #app-mount .sidebar-1tnWFu [class*=scroller-] {
-    background-color: transparent  !important;
+    background-color: transparent !important;
 }
+
 #app-mount .panels-3wFtMD {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 #app-mount .panels-3wFtMD>.container-YkUktl {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 #app-mount .panels-3wFtMD>.container-YkUktl .directionRow-2Iu2A9 {
-    background: transparent  !important;
+    background: transparent !important;
     border-color: transparent;
 }
+
 #app-mount .chat-2ZfjoI {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 #app-mount .uploadArea-2Nu_Vc {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 #app-mount .container-ZMc96U {
     background: transparent !important;
 }
+
 #app-mount .container-ZMc96U .toolbar-3_r2xA {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 #app-mount .container-ZMc96U .search-39IXmY {
-    background: transparent  !important;
+    background: transparent !important;
 }
+
 #app-mount .container-ZMc96U .searchBar-jGtisZ {
-    background: transparent  !important;
-    border: transparent  !important;
+    background: transparent !important;
+    border: transparent !important;
 }
+
 #app-mount .privateChannels-oVe7HL {
     background: transparent;
 }
+
 #app-mount .container-2cd8Mz {
     background: transparent;
 }
+
 #app-mount .container-ZMc96U .children-3xh0VB .status-12NUUC {
     background: transparent;
+}
+
+.theme-light .scroller-3X7KbA {
+    background: transparent !important;
+}
+.theme-dark .scroller-3X7KbA {
+    background: transparent !important;
 }
 
 /* Messages Slide In Chat */
@@ -821,41 +891,58 @@ body {
         opacity: 0;
         transform: translateX(20px);
     }
+
     100% {
         opacity: 1;
         transform: translateX(0px);
     }
 }
+
 .message-2CShn3 {
-  animation: slide-up 0.4s ease;
+    animation: slide-up 0.4s ease;
 }
 
 /* Add cute background for usernames in chat  (compact) */
 #app-mount .wrapper-30-Nkg .username-h_Y3Us::before {
-  content: '';
-  width: calc(100% + 6px);
-  height: 100%;
-  border-radius: 5px;
-  background-color: currentColor;
-  opacity: 0.2;
-  position: absolute;
-  top: 0;
-  left: -4px;
-  z-index: -1;
+    content: '';
+    width: calc(100% + 6px);
+    height: 100%;
+    border-radius: 3px;
+    background-color: currentColor;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    left: -4px;
+    z-index: -1;
 }
+
+#app-mount .wrapper-30-Nkg .username-h_Y3Us {
+    margin-left: 10px;
+}
+
 #app-mount .wrapper-30-Nkg .username-h_Y3Us::after {
-  content: ":";
+    content: ":";
 }
 
 /* Pop-out Animation */
-.menu-1QACrS, .emojiPicker-6YCk8a, .browser-mnQ1T7, .messagesPopoutWrap-3zryHW, .wrapper-1NB3WY, .container-3u7RcY, .container-2o3qEW, .container-2ebMPP, .userPopout-2j1gM4 {
+.menu-1QACrS,
+.emojiPicker-6YCk8a,
+.browser-mnQ1T7,
+.messagesPopoutWrap-3zryHW,
+.wrapper-1NB3WY,
+.container-3u7RcY,
+.container-2o3qEW,
+.container-2ebMPP,
+.userPopout-2j1gM4 {
     animation: custom-menu-animation 250ms ease;
     transform-origin: top;
 }
+
 @keyframes custom-menu-animation {
     0% {
         transform: scaleY(0);
     }
+
     100% {
         transform: scaleY(1);
     }
@@ -867,8 +954,139 @@ body {
     top: 2px;
     opacity: 0.5;
 }
+
 #app-mount .slateTextArea-27tjG0:focus {
     color: var(--text-normal);
     top: 2px;
     opacity: 1;
+}
+
+/* User button at the bottom */
+/*#app-mount .styleFlexible-x0_sIC,
+#app-mount .submenu-1apzyU {
+    background: var(--slate-bg);
+    box-shadow: unset;
+    border-radius: var(--border-radius);
+    margin-left: 10px;
+    overflow: unset;
+    margin-top: 1px;
+    margin-bottom: 10px;
+    margin-right: 1px;
+    border-style: solid;
+    border-color: var(--background-sidebar);
+    border-width: 1px;
+}*/
+
+/*#account-divider-1,
+#account-divider-2 {
+    display: none !important;
+}*/
+
+/*.scroller-1bVxF5 .none-2-_0dP .scrollerBase-_bVAAt {
+    overflow: hidden scroll;
+    padding-right: 8px;
+    padding-left: 12px !important;
+    bottom: 10px !important;
+}*/
+
+/*.menu-1QACrS,
+.emojiPicker-6YCk8a,
+.browser-mnQ1T7,
+.messagesPopoutWrap-3zryHW,
+.wrapper-1NB3WY,
+.container-3u7RcY,
+.container-2o3qEW,
+.container-2ebMPP,
+.userPopout-2j1gM4 {
+    animation: custom-menu-animation 250ms ease;
+    transform-origin: top;
+    left: 10px;
+    bottom: 5px !important;
+}*/
+
+/*#app-mount .userPopoutOuter-3AVBmJ {
+    border: unset;
+    box-shadow: var(--elevation-1);
+    border-radius: var(--border-radius);
+    padding: unset;
+}*/
+
+/*#account>div {
+    background: var(--background-sidebar);
+}
+
+#account>div>div:nth-child(1) {
+    margin-left: 8px !important;
+}*/
+
+
+/* Profile info at the righ in DMs */
+.userPanelInnerThemed-2xZFjl {
+    background: transparent !important;
+    border-radius: var(--border-radius);
+}
+#app-mount>div.appAsidePanelWrapper-ev4hlp>div.notAppAsidePanel-3yzkgB>div.app-3xd6d0>div>div.layers-OrUESM.layers-1YQhyW>div>div>div>div.content-1SgpWY>div.chat-2ZfjoI>div.content-1jQy2l>aside>div {
+    background: var(--slate-bg) !important;
+    border-radius: var(--border-radius);
+}
+
+.bannerPremium-86naOf {
+    border-radius: var(--border-radius);
+}
+
+.none-2-_0dP .scrollerBase-_bVAAt {
+    overflow: hidden scroll;
+    /*left: 5px !important;
+    margin-right: 5px !important;*/
+    /*padding-right: 0px;
+    margin-right: 5px !important;*/
+}
+
+.profilePanel-2PWEok {
+    left: 5px;
+    margin-right: 5px;
+}
+
+.none-2-_0dP {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    background-color: var(--slate-bg);
+    padding-left: unset !important;
+    border-left-style: solid;
+    border-left-width: 0px;
+    border-left-color: var(--background-sidebar);
+    border-radius: var(--border-radius);
+    /*left: 5px;
+    margin-right: 5px !important;*/
+}
+
+.avatarPositionPanel-3P4Ted {
+    top: 72px;
+    left: 18px !important;
+}
+
+.wrapper-1VLyxH rect {
+    x: 70%;
+    y: 65%;
+    stroke: var(--base-border);
+    rx: 50;
+}
+
+/* Server icons size */
+.wrapper-2PSQCG {
+    width: var(--server-icon-size);
+    height: var(--server-icon-size);
+}
+
+.svg-2ifYOU {
+    width: var(--server-icon-size);
+    height: var(--server-icon-size);
+}
+/* Add round corners to server icons */
+.childWrapper-1j_1ub, .wrapper-3kah-n {
+    border-radius: var(--server-radius) !important;
+    background: transparent !important;
+}
+.icon-3AqZ2e {
+    border-radius: var(--server-radius) !important;
 }

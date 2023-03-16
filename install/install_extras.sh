@@ -29,6 +29,7 @@ if [[ -f "usr/bin/yay" ]]; then
 	isInstalled "polybar"
 	isInstalled "python-pywal"
 	isInstalled "rofi"
+	isInstalled "wine"
 
 	if [[ "$PCK_INST" == "yay -S" ]]; then
 		echo "Everything is ready..."

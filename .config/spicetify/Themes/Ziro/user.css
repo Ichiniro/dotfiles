@@ -2,6 +2,8 @@
   --br-1: 10px;
   --br-2: 8px;
   --scrollbar: unset;
+  --scrollbar-vertical-size: 0px;
+  --scrollbar-horizontal-size: 0px;
 }
 /* background */
 .main-home-homeHeader,
@@ -48,12 +50,11 @@
   background: var(--spice-button-disabled);
   width: -webkit-fill-available;
 }
-.main-rootlist-rootlistItem {
-  padding: 0 8px 0 calc(8px + var(--indentation) * 8px);
-}
 .main-rootlist-rootlistItemLink {
-  padding: 0 16px;
+  margin-left: unset;
+  margin-right: unset;
 }
+
 .main-rootlist-statusIcons,
 .main-rootlist-expandArrow {
   position: absolute;
@@ -104,6 +105,10 @@
 .x-progressBar-progressBarBg {
   background-color: var(--spice-button-disabled);
 }
+.x-progressBar-fillColor {
+  background-color: var(--spice-button-active);
+}
+
 .DuvrswZugGajIFNXObAr .progress-bar__slider,
 .epWhU7hHGktzlO_dop6z {
   background-color: var(--bar) !important;
@@ -367,6 +372,9 @@
   transform: translateY(64px);
 }
 /* tracklist */
+.main-trackList-trackList {
+  background-color: var(--spice-card);
+}
 .main-trackList-trackList .JUa6JJNj7R_Y3i4P8YUX {
   background: var(--spice-card);
   border-radius: var(--br-1);
@@ -586,10 +594,23 @@ li.GlueDropTarget.GlueDropTarget--playlists.GlueDropTarget--folders {
 }
 
 .utSR0FVkHnII_aL8TOcu.K8Rs3qAYirS8wJ1hR8gn {
-    color: var(--spice-button-active);
+  color: var(--spice-button-active);
+}
+
+/* Change color of playlist names on sidebar */
+.lfGOlT {
+  color: var(--spice-text);
+  padding-left: 15px;
+
+}
+
+/* Add padding to artist banner */
+.Root__main-view {
+    padding-right: 10px;
 }
 
 * {
   /*font-family: Helvetica !important;*/
-  font-family: 'Proxima Nova' !important;
+  font-family: Helvetica, "Murecho Regular" !important;
+  font-weight: 500 !important;
 }
