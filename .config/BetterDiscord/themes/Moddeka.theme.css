@@ -1,0 +1,874 @@
+/**
+ * @name Moddeka
+ * @version 1.0
+ * @author whoknows
+*/
+
+/*        _____                    _____            _____                _____                    _____
+         /\    \                  /\    \          /\    \              /\    \                  /\    \
+        /::\    \                /::\____\        /::\    \            /::\    \                /::\    \
+       /::::\    \              /:::/    /       /::::\    \           \:::\    \              /::::\    \
+      /::::::\    \            /:::/    /       /::::::\    \           \:::\    \            /::::::\    \
+     /:::/\:::\    \          /:::/    /       /:::/\:::\    \           \:::\    \          /:::/\:::\    \
+    /:::/__\:::\    \        /:::/    /       /:::/__\:::\    \           \:::\    \        /:::/__\:::\    \
+    \:::\   \:::\    \      /:::/    /       /::::\   \:::\    \          /::::\    \      /::::\   \:::\    \
+  ___\:::\   \:::\    \    /:::/    /       /::::::\   \:::\    \        /::::::\    \    /::::::\   \:::\    \
+ /\   \:::\   \:::\    \  /:::/    /       /:::/\:::\   \:::\    \      /:::/\:::\    \  /:::/\:::\   \:::\    \
+/::\   \:::\   \:::\____\/:::/____/       /:::/  \:::\   \:::\____\    /:::/  \:::\____\/:::/__\:::\   \:::\____\
+\:::\   \:::\   \::/    /\:::\    \       \::/    \:::\  /:::/    /   /:::/    \::/    /\:::\   \:::\   \::/    /
+ \:::\   \:::\   \/____/  \:::\    \       \/____/ \:::\/:::/    /   /:::/    / \/____/  \:::\   \:::\   \/____/
+  \:::\   \:::\    \       \:::\    \               \::::::/    /   /:::/    /            \:::\   \:::\    \
+   \:::\   \:::\____\       \:::\    \               \::::/    /   /:::/    /              \:::\   \:::\____\
+    \:::\  /:::/    /        \:::\    \              /:::/    /    \::/    /                \:::\   \::/    /
+     \:::\/:::/    /          \:::\    \            /:::/    /      \/____/                  \:::\   \/____/
+      \::::::/    /            \:::\    \          /:::/    /                                 \:::\    \
+       \::::/    /              \:::\____\        /:::/    /                                   \:::\____\
+        \::/    /                \::/    /        \::/    /                                     \::/    /
+         \/____/                  \/____/          \/____/                                       \/____/
+
+====================================================================================
+ Please view the full documentation at https://github.com/DiscordStyles/Slate/wiki
+====================================================================================
+*/
+
+/*
+====================================================================================
+                                Import Source Code
+====================================================================================
+*/
+
+@import url("https://discordstyles.github.io/AdjustableServerWidth/base.css");
+@import url("https://discordstyles.github.io/Slate/dist/Slate.css");
+
+/*
+====================================================================================
+                                  Basic Variables
+====================================================================================
+*/
+
+:root {
+    /*Primary Colors*/
+    --accent: 183,76,94;
+    --link-colour: 48, 144, 255;
+    --sidebar-width: 260px;
+
+    /*Server List*/
+    --server-icon-size: 35px;
+    --server-icon-spacing: 11px;
+    --server-container-padding: 10px;
+
+    /* My edits */
+    --border-radius: 6px;
+    --avatar-radius: 100%;
+    --server-radius: 12px;
+
+    --background: #fbf7f7;
+    --background-alt: #fbf7f7;
+    --background-light: #fbf7f7;
+    --background-dark: #fbf7f7;
+    --background-sidebar: #F3EFEF;
+    --background-modifier-hover: #b74c5e30;
+    --background-modifier-active: #b74c5e30;
+    --toolbar-background: #fbf7f7;
+    --toolbar-background-hover: 30;
+
+    --slate-bg: var(--background-alt);
+    --sidebar-rgb: 243,239,239;
+
+    --text-normal: #505053;
+    --text-focus: #b74c5e;
+    --text-muted: rgba(var(--accent), 0.5);
+
+    --base-border: #fbf7f7;
+    --toolbar-border: #fbf7f7;
+    --toolbar-search-background: var(--background-sidebar);
+    --toolbar-search-border: var(--background-sidebar);
+    /*--toolbar-text-focus:var(--accent);*/
+    --toolbar-text-normal: var(--text-focus);
+    --toolbar-text-focus: var(--text-focus);
+    --toolbar-text-muted: rgba(var(--accent), 0.5);
+
+    /*--font-family-sans-serif: 'VictorMono Nerd Font';
+  --font-family-monospace: 'VictorMono Nerd Font Mono';*/
+    --font-family-sans-serif: 'Helvetica';
+    --font-family-monospace: 'Monoflow';
+    --font-size: 13px;
+}
+
+/*
+====================================================================================
+                Please place any Theme-specific Custom CSS Below here
+====================================================================================
+*/
+
+.card-2qZngs {
+    background-color: var(--background);
+    text-align: center;
+}
+
+.header-nbFv8R {
+    color: var(--text-focus);
+}
+
+.emptyHeader-3lmLcs {
+    color: var(--text-focus);
+}
+
+.colorStandard-2KCXvj {
+    color: var(--text-normal) !important;
+}
+
+.emptyText-2zjpZr {
+    color: var(--text-normal) !important;
+}
+
+/* Mic, sound, settings settings */
+#app-mount .panels-3wFtMD>.container-YkUktl .directionRow-2Iu2A9 {
+    background: var(--background-sidebar);
+    border-color: var(--background-sidebar);
+    border-style: solid;
+    border-width: 2px;
+}
+
+/* Mic, sound and settings parent container settings */
+#app-mount .panels-3wFtMD>.container-YkUktl {
+    background: var(--background-sidebar);
+    border-right: unset;
+}
+
+/* Message field settings */
+#app-mount .inner-NQg18Y {
+    border: 2px solid var(--background-secondary);
+}
+
+/* Servers sidebar settings */
+#app-mount .guilds-2JjMmN .scrollerBase-_bVAAt {
+    background: var(--background-sidebar);
+    padding-top: unset;
+    border-color: var(--background-secondary);
+}
+
+#app-mount .sidebar-1tnWFu {
+    margin-right: 5px;
+}
+
+#app-mount .sidebar-1tnWFu .content-1gYQeQ {
+    border-radius: var(--border-radius);
+}
+
+#app-mount .sidebar-1tnWFu .animatedContainer-2laTjx {
+    border-radius: var(--border-radius);
+}
+
+.containerDefault-YUSmu3,
+.containerDragAfter-3aBiOW,
+.containerDragBefore-1s5Qg6,
+.containerUserOver-SDa1HW {
+    padding-left: 10px;
+}
+
+/* Server Channels list settings */
+#app-mount .sidebar-1tnWFu [class*=scroller-] {
+    background-color: var(--background-sidebar);
+    border-right: unset;
+    border-left: unset;
+}
+
+.container-1NXEtd {
+    background-color: var(--background-alt);
+}
+
+/* Set y position to the channel list */
+.guilds-2JjMmN {
+    width: var(--container);
+    top: 50px;
+}
+
+/* Toolsbar settings: Server name f.e.*/
+#app-mount .sidebar-1tnWFu .header-3OsQeK {
+    background-color: var(--background-sidebar);
+    border-bottom: unset;
+    border-right: unset;
+    width: unset;
+}
+
+/* Add round corners to selected channel */
+#app-mount .sidebar-1tnWFu .wrapper-NhbLHG.modeSelected-3DmyhH .content-1gYQeQ {
+    border-radius: var(--border-radius);
+}
+
+/* Add padding to channels list */
+#app-mount .sidebar-1tnWFu .content-1gYQeQ {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Add shadow to pinned messages */
+#app-mount .messagesPopoutWrap-3zryHW {
+    box-shadow: 0 5px 20px 1px #00000020;
+}
+
+/* Remove tiny borders */
+#app-mount .guilds-2JjMmN {
+    border: unset;
+}
+
+#app-mount .panels-3wFtMD {
+    border-right: unset;
+}
+
+#app-mount .panels-3wFtMD>.container-YkUktl {
+    border-top: unset;
+}
+
+#app-mount .panels-3wFtMD::before {
+    border-top: unset;
+}
+
+/* Add round corrners to selected chat */
+.selected-3veCBZ {
+    height: 38px;
+    border-radius: var(--border-radius);
+}
+
+/* Add margins to selected chats */
+#app-mount .privateChannels-oVe7HL .content-2a4AW9 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Call controls background */
+#app-mount .panels-3wFtMD .container-1zzFcN {
+    background-color: var(--background-sidebar);
+}
+
+#app-mount .panels-3wFtMD .container-1zzFcN .horizontal-112GEH>.flex-2S1XBF:last-child {
+    background: var(--background-sidebar);
+    border: unset;
+}
+
+/* Add shadow to inboc popup */
+.container-2ebMPP {
+    box-shadow: 0 5px 20px 1px #00000020 !important;
+}
+
+/* Hide server privacy button */
+.communityInfoVisible-3zc5_s .communityInfoContainer-1dMVpU {
+    opacity: 0% !important;
+}
+
+/* Remove shadow in partnered servers title */
+.bannerVisible-Vkyg1I .headerContent-2SNbie {
+    filter: none;
+}
+
+/* Fix weird placement in themes screen */
+#app-mount .layer-86YKbF:not(.baseLayer-W6S8cY) .contentRegion-3HkfJJ .contentColumnDefault-3eyv5o {
+    display: unset;
+}
+
+/* Round corners for member list */
+#app-mount .member-2gU6Ar .layout-1qmrhw {
+    border-radius: var(--border-radius);
+    margin-left: 5px;
+}
+
+/* Fix members icons not centered in the list */
+#app-mount .member-2gU6Ar .avatar-6qzftW {
+    margin-right: var(--spacing-double);
+    height: calc(var(--avatar-size)*1.2) !important;
+    place-self: baseline;
+    width: var(--avatar-size) !important;
+}
+
+/*--- Chat rounds corners ---*/
+
+/*ROund corners for dates in chat */
+#app-mount .chatContent-3KubbW .divider-2rZFJK {
+    background: unset;
+}
+
+/* Inner background colors */
+#app-mount .chat-2ZfjoI {
+    background: var(--background-sidebar);
+}
+
+#app-mount .chat-2ZfjoI .newMessagesBar-1hF-9G {
+    border-radius: var(--border-radius);
+}
+
+/* Round corners of chat*/
+#app-mount .messagesWrapper-RpOMA3 {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+/* Round corner at the bootom of chats */
+#app-mount .form-3gdLxP {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+/* Change color of toolbar */
+#app-mount .container-ZMc96U,
+#app-mount .container-ZMc96U .search-39IXmY,
+#app-mount .base-2jDfDU {
+    background: var(--background-sidebar);
+}
+
+#app-mount .container-ZMc96U .toolbar-3_r2xA {
+    background: var(--background-sidebar);
+    border-right: unset;
+}
+
+#app-mount .container-ZMc96U {
+    border-bottom: unset;
+}
+
+#app-mount .container-ZMc96U .children-3xh0VB {
+    border-right: unset;
+}
+
+.content-1SgpWY {
+    margin-bottom: 5px;
+}
+
+#app-mount .container-2o3qEW {
+    border-radius: var(--border-radius);
+    margin-left: 5px;
+}
+
+#app-mount .membersWrap-3NUR2t {
+    border-radius: var(--border-radius);
+    margin-right: 5px;
+}
+
+.content-1jQy2l {
+    margin-right: 5px;
+}
+
+/* Re position channel name in sidebar */
+#app-mount .sidebar-1tnWFu .header-3OsQeK {
+    left: unset;
+}
+
+.guilds-2JjMmN {
+    top: unset;
+}
+
+#app-mount .guilds-2JjMmN {
+    background: var(--background-sidebar);
+}
+
+#app-mount .layer-86YKbF.baseLayer-W6S8cY {
+    margin-top: 5px;
+}
+
+#app-mount .layers-OrUESM {
+    background-color: var(--background-sidebar);
+}
+
+/* Fix spoty integration */
+#app-mount .lookFilled-yCfaCM:not(.colorGrey-2DXtkV),
+#app-mount .bd-modal-wrapper .footer button,
+#app-mount .primaryButton-361sHl {
+    margin-left: unset;
+}
+
+.lookFilled-yCfaCM .contents-3ca1mk,
+.lookInverted-2mDUMi .contents-3ca1mk,
+.lookLink-15mFoz .contents-3ca1mk,
+.lookOutlined-3yKVGo .contents-3ca1mk {
+    overflow: unset;
+}
+
+#app-mount .userPopout-2j1gM4 .buttonsWrapper-2ARRp1 {
+    gap: 0px;
+    margin-right: 12px;
+}
+
+/* Threads */
+#app-mount .resizeHandle-PBRzPC {
+    border-left: unset;
+    background: var(--background-sidebar);
+}
+
+#app-mount .container-3XgAHv .children-3xh0VB {
+    width: unset;
+}
+
+#app-mount .container-3XgAHv {
+    border-radius: var(--border-radius);
+    border-left: unset;
+    background: transparent;
+    margin-right: 5px;
+    margin-left: -5px;
+}
+
+#app-mount .messagesWrapper-RpOMA3 .container-1yy5xN h1 {
+    margin: unset;
+    margin-bottom: unset;
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-bold);
+    max-width: unset;
+}
+
+/* Home? fixes */
+#app-mount .privateChannels-oVe7HL .searchBar-3TnChZ {
+    border-right: unset;
+}
+
+#app-mount .content-1SgpWY .sidebar-1tnWFu .scrollerBase-_bVAAt[style="overflow: hidden scroll; padding-right: 0px;"]:not([id*=channels]) {
+    border-right: unset;
+}
+
+#app-mount .container-2cd8Mz .topPill-3DJJNV {
+    background: var(--background-sidebar);
+}
+
+.tabBody-2dgbAs {
+    background: var(--background);
+    border-radius: var(--border-radius);
+}
+
+#app-mount .container-2cd8Mz {
+    background: var(--background-sidebar);
+    padding-right: 5px;
+}
+
+#app-mount .container-2cd8Mz .topPill-3DJJNV {
+    background: transparent;
+    border-bottom: unset;
+}
+
+#app-mount .container-2cd8Mz .topPill-3DJJNV .item-3mHhwr {
+    border-right: 1px solid var(--background-sidebar);
+    border-bottom: 1px solid var(--background-sidebar);
+}
+
+#app-mount .container-2cd8Mz .peopleColumn-1wMU14 .scrollerBase-_bVAAt {
+    overflow: hidden !important;
+}
+
+.userPopoutInnerNonPremium-3zrFkp {
+    background: var(--slate-bg);
+}
+
+.avatar-2OC07D {
+    border: unset;
+    background-color: unset;
+}
+
+.wrapper-1VLyxH {
+    border-radius: 100%;
+    box-shadow: unset;
+    background-color: transparent;
+}
+
+.overlayBackground-arbZMT {
+    margin: 28px 10px 5px;
+    background-color: var(--slate-bg);
+    border-radius: var(--border-radius);
+}
+
+#app-mount .privateChannels-oVe7HL .searchBar-3TnChZ {
+    background: unset;
+    border-bottom: unset;
+}
+
+/* User's pop up */
+.userProfileInnerNonPremium-1XjSjn {
+    background: var(--background-sidebar);
+}
+
+.overlayBackground-1KgwVi {
+    background-color: var(--slate-bg);
+}
+
+.wrapper-1VLyxH rect {
+    x: 65%;
+    y: 65%;
+}
+
+#app-mount .input-1nrc5P,
+#app-mount .input-2g-os5,
+#app-mount .input-2lpFVz {
+    background: unset;
+    border: unset;
+}
+
+#app-mount .styleFlexible-x0_sIC .item-1OdjEX,
+#app-mount .submenu-1apzyU .item-1OdjEX {
+    background: var(--slate-bg);
+}
+
+#app-mount .styleFlexible-x0_sIC .scroller-1bVxF5,
+#app-mount .submenu-1apzyU .scroller-1bVxF5 {
+    background: var(--slate-bg);
+}
+
+#app-mount .styleFlexible-x0_sIC,
+#app-mount .submenu-1apzyU {
+    border: unset;
+}
+
+/* Profile page */
+/*#app-mount .root-8LYsGj .topSection-13QKHs>header {
+    position: unset;
+    display: unset;
+}
+
+#app-mount .root-8LYsGj .topSection-13QKHs {
+    width: -webkit-fill-available;
+}
+#app-mount .root-8LYsGj .topSection-13QKHs .wrapper-1VLyxH {
+    position: relative;
+    top: -70px;
+    left: 29px;
+}
+#app-mount .root-8LYsGj .body-1Ukv50 {
+    width: calc(var(--right-side) - 15px);
+    overflow: clip;
+    position: absolute;
+    top: 120px;
+}
+.focusLock-2tveLW, .root-g14mjS {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: var(--settings-min-width);
+    max-width: var(--settings-max-width);
+    padding-top: 50px;
+    top: 0;
+    overflow: hidden;
+    position: relative;
+    max-height: var(--settings-max-height);
+}
+#app-mount .root-8LYsGj .headerTop-1PNKck {
+    padding: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    max-width: 25%;
+    left: 5px;
+    top: 80px;
+}*/
+
+/* Members options */
+#app-mount .slider-1NC-Gf .bar-1Bhnl9 {
+    background: var(--background-sidebar);
+}
+
+/* My profile at bottom */
+#app-mount .panels-3wFtMD>.container-YkUktl .avatarWrapper-1B9FTW .wrapper-1VLyxH {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+/* Remove custom profiles pics for people without one */
+.wrapper-1VLyxH .avatar-b5OQ1N[src*="/assets/"] {
+    content: unset;
+    border-radius: var(--avatar-radius);
+    background: var(--text-muted);
+    mask: unset;
+    -webkit-mask: unset;
+}
+
+/* Center config panel */
+#app-mount .layer-86YKbF:not(.baseLayer-W6S8cY) .standardSidebarView-E9Pc3j {
+    position: relative !important;
+}
+
+/* Fix colors of the profile on config panel */
+.accountProfileCard-lbN7n- {
+    background-color: var(--background-sidebar);
+}
+
+.background-3d_SjE {
+    background-color: var(--slate-bg);
+}
+
+.fieldList-in8WkP {
+    background-color: var(--slate-bg);
+}
+
+.avatar-3mTjvZ {
+    border: 7px solid var(--slate-bg);
+}
+
+/* Fixes for invitations, links, etc */
+
+/* Invitations */
+#app-mount .wrapper-1HIH0j {
+    border: 1px solid var(--background-sidebar);
+    background-color: var(--background-sidebar);
+}
+
+/* Links */
+#app-mount .embedFull-1HGV2S .grid-1aWVsE {
+    background: var(--background-sidebar);
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+/* Code */
+#app-mount pre code {
+    background: var(--background-sidebar) !important;
+    border: 1px solid var(--background-sidebar) !important;
+}
+
+/* Emoji picker */
+#app-mount .emojiPicker-6YCk8a {
+    background: var(--background-sidebar);
+}
+#app-mount #emoji-picker-tab-panel .listItems-6eZzQ1 {
+    background: var(--background-sidebar);
+}
+#app-mount .wrapper-1NNaWG {
+    border-bottom: unset;
+    border-top: unset;
+    background: var(--slate-bg);
+    border-radius: var(--border-radius);
+}
+#app-mount .inspector-2A2Chb,
+#app-mount .inspector-DFKXwB {
+    background: var(--background-sidebar);
+    border: unset;
+}
+.wrapper-1NNaWG:after {
+    background-color: transparent;
+}
+#app-mount .input-2FSSDe, #app-mount .input-2m5SfJ, #app-mount .input-2FSSDe {
+    background-color: var(--slate-bg);
+    border: unset;
+}
+#app-mount .header-JHwfVI, #app-mount .header-11eigE, #app-mount .header-uVCAlo, #app-mount .header-2TLOnc {
+    padding-left: 180px;
+}
+#app-mount .header-JHwfVI, #app-mount .header-11eigE, #app-mount .header-uVCAlo, #app-mount .header-2TLOnc {
+    background: var(--background-sidebar);
+}
+#app-mount #gif-picker-tab-panel .content-A8TzKf {
+    background: var(--background-sidebar);
+}
+.wrapper-i1awk3 {
+    background: var(--background-sidebar);
+}
+#app-mount .categoryList-2GgCrD {
+    background: var(--background-sidebar);
+}
+
+/* Fix color for titles in toolbar */
+.title-17SveM {
+    color: var(--text-normal);
+    font-weight: bold;
+}
+/* Fix color for server name */
+.name-3Uvkvr {
+    color: var(--text-normal) !important;
+    font-weight: bolder;
+    font-size: 16px !important;
+}
+#app-mount .container-ZMc96U .children-3xh0VB .iconWrapper-2awDjA .icon-2xnN2Y {
+    color: var(--text-normal);
+}
+#app-mount .container-ZMc96U .toolbar-3_r2xA .icon-2xnN2Y {
+    color: var(--text-normal);
+    opacity: 0.75;
+    cursor: pointer;
+}
+#app-mount .container-ZMc96U .toolbar-3_r2xA .selected-29KTGM .icon-2xnN2Y {
+    color: var(--text-normal);
+    opacity: 0.75;
+}
+#app-mount .container-ZMc96U .searchBar-jGtisZ .iconContainer-1RqWJj .icon-18rqoe {
+    color: var(--text-normal);
+    transition: none;
+    /* opacity: 0.75; */
+}
+#app-mount .container-ZMc96U .searchBar-jGtisZ .public-DraftEditorPlaceholder-root {
+    color: var(--text-normal);
+    opacity: 0.75;
+}
+#app-mount .sidebar-1tnWFu .header-3OsQeK .button-2BMPJJ {
+    opacity: 0;
+}
+#app-mount .sidebar-1tnWFu .header-3OsQeK .name-3Uvkvr:before {
+    content: unset;
+}
+#app-mount .container-ZMc96U .children-3xh0VB .title-17SveM:before {
+    content: unset;
+}
+#app-mount .container-ZMc96U .children-3xh0VB .title-17SveM {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-normal);
+}
+
+/* Fix color of memebers on sidebar */
+.member-48YF_l, .members-3WRCEx {
+    background-color: unset;
+}
+
+/* Trasnsparency attemp */
+body {
+    background: rgba(var(--sidebar-rgb), 0.8) !important;
+}
+#app-mount {
+    background: transparent  !important;
+}
+.appDevToolsWrapper-1QxdQf {
+    background: transparent  !important;
+}
+.notDevTools-1zkgfK {
+    background: transparent  !important;
+}
+.app-3xd6d0, .mobileApp-3_TCAV {
+    background: transparent  !important;
+}
+.app-2CXKsg, .bg-1QIAus {
+    background: transparent  !important;
+}
+.app-2CXKsg, .bg-1QIAus {
+    background: transparent  !important;
+}
+#app-mount .layers-OrUESM {
+    background-color: transparent  !important;
+}
+#app-mount .layer-86YKbF.baseLayer-W6S8cY {
+    background: transparent  !important;
+}
+.container-1eFtFS {
+    background: transparent  !important;
+}
+#app-mount .guilds-2JjMmN {
+    background: transparent  !important;
+}
+.tree-3agP2X {
+    background: transparent  !important;
+}
+#app-mount .guilds-2JjMmN .scrollerBase-_bVAAt {
+    background: transparent  !important;
+    border-color: transparent;
+}
+#app-mount .base-2jDfDU {
+    background-color: transparent  !important;
+}
+.content-1SgpWY {
+    background: transparent  !important;
+}
+#app-mount .sidebar-1tnWFu {
+    background: transparent  !important;
+}
+.container-1NXEtd {
+    background-color: transparent  !important;
+}
+#app-mount .sidebar-1tnWFu .container-1-ERn5 {
+    background: transparent  !important;
+}
+#app-mount .sidebar-1tnWFu .header-3OsQeK {
+    background: transparent  !important;
+}
+#app-mount .sidebar-1tnWFu [class*=scroller-] {
+    background-color: transparent  !important;
+}
+#app-mount .panels-3wFtMD {
+    background: transparent  !important;
+}
+#app-mount .panels-3wFtMD>.container-YkUktl {
+    background: transparent  !important;
+}
+#app-mount .panels-3wFtMD>.container-YkUktl .directionRow-2Iu2A9 {
+    background: transparent  !important;
+    border-color: transparent;
+}
+#app-mount .chat-2ZfjoI {
+    background: transparent  !important;
+}
+#app-mount .uploadArea-2Nu_Vc {
+    background: transparent  !important;
+}
+#app-mount .container-ZMc96U {
+    background: transparent !important;
+}
+#app-mount .container-ZMc96U .toolbar-3_r2xA {
+    background: transparent  !important;
+}
+#app-mount .container-ZMc96U .search-39IXmY {
+    background: transparent  !important;
+}
+#app-mount .container-ZMc96U .searchBar-jGtisZ {
+    background: transparent  !important;
+    border: transparent  !important;
+}
+#app-mount .privateChannels-oVe7HL {
+    background: transparent;
+}
+#app-mount .container-2cd8Mz {
+    background: transparent;
+}
+#app-mount .container-ZMc96U .children-3xh0VB .status-12NUUC {
+    background: transparent;
+}
+
+/* Messages Slide In Chat */
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+.message-2CShn3 {
+  animation: slide-up 0.4s ease;
+}
+
+/* Add cute background for usernames in chat  (compact) */
+#app-mount .wrapper-30-Nkg .username-h_Y3Us::before {
+  content: '';
+  width: calc(100% + 6px);
+  height: 100%;
+  border-radius: 5px;
+  background-color: currentColor;
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  left: -4px;
+  z-index: -1;
+}
+#app-mount .wrapper-30-Nkg .username-h_Y3Us::after {
+  content: ":";
+}
+
+/* Pop-out Animation */
+.menu-1QACrS, .emojiPicker-6YCk8a, .browser-mnQ1T7, .messagesPopoutWrap-3zryHW, .wrapper-1NB3WY, .container-3u7RcY, .container-2o3qEW, .container-2ebMPP, .userPopout-2j1gM4 {
+    animation: custom-menu-animation 250ms ease;
+    transform-origin: top;
+}
+@keyframes custom-menu-animation {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+/* Chat message field */
+#app-mount .slateTextArea-27tjG0 {
+    color: var(--text-normal);
+    top: 2px;
+    opacity: 0.5;
+}
+#app-mount .slateTextArea-27tjG0:focus {
+    color: var(--text-normal);
+    top: 2px;
+    opacity: 1;
+}
