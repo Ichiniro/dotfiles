@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ichiniro/.oh-my-zsh"
+export ZSH="/home/dekaichi/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="smt"
+ZSH_THEME="kardan" # set by `omz`
 # Temas utiles
 # takashiyoshida
 # avit
@@ -127,13 +127,15 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias fet="sh ~/.toys/fet.sh"
 alias :q="exit"
-#alias lh='lsd -lh'
-#alias ls='lsd'
+alias lh='lsd -lh'
+alias ls='lsd'
 alias rice="sh $HOME/.config/polybar/scripts/rice.sh"
 alias sc="sh $HOME/.config/polybar/scripts/scheme.sh"
 alias endksession="qdbus org.kde.kmserver /KSMServer logout 1 3 3"
 alias colorpanes="sh $HOME/.toys/colorpanes"
 alias colorline="sh $HOME/.toys/colorline"
+alias kdecs='./.config/autostart/kdecs'
+alias colorz='colorz --no-preview -n 6'
 
 # Command to create a folder and cd'd into the folder
 mkcd () {
@@ -147,24 +149,35 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 
 # Add pip3 to PATH
-export PATH="${PATH}:${HOME}/.local/bin/"
+# export PATH="${PATH}:${HOME}/.local/bin/"
 
 #sh ~/.toys/maki.sh
 #figlet "Nanisore? Imi wakannai" -c -k -t
 
 # Ignore some commands from history
-HISTORY_IGNORE='(fet *|colorpanes *|colorline *|cpumode *|cpuperformance *|cpupowersave *|ls *|rice *|sc *|:q *)'
+HISTORY_IGNORE='(fet *|colorpanes *|colorline *|cpumode *|cpuperformance *|cpupowersave *|ls *|rice *|sc *|:q *|colorz *)'
 
 # Custom highlight
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[alias]='fg=#3CC194'
-ZSH_HIGHLIGHT_STYLES[command]='fg=#3CC194'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=#3CC194'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=#3CC194'
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#372D3F'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#6B90AD'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#6B90AD'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#6B90AD'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#6B90AD'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#505053'
 
 # Change color of autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_HISTORY_IGNORE="sc *|"
 
+# Add game scripts folder to path
+export PATH="${PATH}:${HOME}/.local/bin/"
+
+# Fix for video playback in Firefox 98
+# export MOZ_DISABLE_RDD_SANDBOX=1
+
+SESSSION=$(loginctl show-session $(awk '/tty/ {print $1}' <(loginctl)) -p Type | awk -F= '{print $2}')
+if [[ $SESSSION -eq "wayland" ]]; then
+    MOZ_ENABLE_WAYLAND=1
+fi
+export GPG_TTY=$(tty)
